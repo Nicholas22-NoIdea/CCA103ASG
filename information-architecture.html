@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Architecture - Scholarship System</title>
+    <link rel="stylesheet" href="../assets/css/design-system.css">
+    <style>
+        .ia-diagram {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin: var(--spacing-8) 0;
+            overflow-x: auto;
+        }
+
+        .ia-level {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: var(--spacing-8);
+            position: relative;
+        }
+
+        .ia-level:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: -var(--spacing-8);
+            left: 0;
+            right: 0;
+            height: var(--spacing-8);
+            background: repeating-linear-gradient(to bottom,
+                    transparent,
+                    transparent calc(50% - 1px),
+                    #ccc calc(50% - 1px),
+                    #ccc 50%);
+            background-size: 100% 100%;
+        }
+
+        .ia-item {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            color: var(--text-inverse);
+            padding: var(--spacing-4) var(--spacing-6);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            min-width: 150px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .ia-item.admin {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+        }
+
+        .ia-item.evaluation {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+
+        .ia-item.award {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        .ia-item.reporting {
+            background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+        }
+
+        .user-role {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-6);
+            align-items: start;
+        }
+
+        .user-role-icon {
+            background-color: var(--primary-blue-light);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-lg);
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .user-role-content h4 {
+            margin-bottom: var(--spacing-2);
+        }
+
+        .user-role-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .screen-list {
+            background-color: var(--gray-50);
+            padding: var(--spacing-4);
+            border-radius: var(--radius-lg);
+            font-size: 0.85rem;
+        }
+
+        .screen-list li {
+            padding: var(--spacing-2) 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .screen-list li:last-child {
+            border-bottom: none;
+        }
+
+        .screen-list li::before {
+            content: '→ ';
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-right: var(--spacing-2);
+        }
+
+        .workflow-section {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            margin: var(--spacing-6) 0;
+        }
+
+        .workflow-box {
+            background-color: var(--gray-50);
+            padding: var(--spacing-4);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .workflow-step {
+            display: flex;
+            gap: var(--spacing-3);
+            align-items: flex-start;
+            padding: var(--spacing-3) 0;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: var(--text-inverse);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .user-role {
+                grid-template-columns: 1fr;
+            }
+
+            .ia-diagram {
+                padding: var(--spacing-4);
+            }
+
+            .ia-item {
+                min-width: 120px;
+                font-size: 0.8rem;
+                padding: var(--spacing-3) var(--spacing-4);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ia-level {
+                flex-wrap: wrap;
+                gap: var(--spacing-4);
+            }
+
+            .ia-level:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" style="padding: var(--spacing-12) 0;">
+        <!-- Header -->
+        <div style="margin-bottom: var(--spacing-12);">
+            <h1 class="text-h1">Information Architecture</h1>
+            <p class="text-body text-secondary" style="max-width: 800px;">Complete system structure, user roles,
+                workflows, and navigation hierarchy for the University Scholarship Management System.</p>
+        </div>
+
+        <!-- System Overview -->
+        <div class="card" style="margin-bottom: var(--spacing-12);">
+            <div class="card-header">
+                <div class="card-title">System Overview</div>
+            </div>
+            <div class="card-content">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-6);">
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-2);">5 Main Modules</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Student, Admin, Evaluation, Award,
+                            Reporting</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-2);">36+ Unique Screens</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Comprehensive coverage of all
+                            workflows</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-2);">5 User Roles</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Student, Admin, Evaluator, Finance,
+                            Leadership</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-2);">Complete Design System</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">50+ reusable components</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Site Map / IA Diagram -->
+        <div style="margin-bottom: var(--spacing-12);">
+            <h2 class="text-h2" style="margin-bottom: var(--spacing-6);">System Hierarchy</h2>
+
+            <div class="ia-diagram">
+                <!-- Level 1: Main Entry -->
+                <div class="ia-level">
+                    <div class="ia-item" style="background: linear-gradient(135deg, #1F2937 0%, #111827 100%);">
+                        Scholarship System
+                    </div>
+                </div>
+
+                <!-- Level 2: Main Modules -->
+                <div class="ia-level">
+                    <div class="ia-item">Student Portal</div>
+                    <div class="ia-item admin">Admin Portal</div>
+                    <div class="ia-item evaluation">Evaluation</div>
+                    <div class="ia-item award">Award Mgmt</div>
+                    <div class="ia-item reporting">Reporting</div>
+                </div>
+
+                <!-- Level 3: Module Screens -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--spacing-4); padding-top: var(--spacing-8);">
+                    <!-- Student Screens -->
+                    <div style="border-left: 2px solid var(--primary-blue); padding-left: var(--spacing-4);">
+                        <div
+                            style="font-size: 0.85rem; font-weight: 600; color: var(--primary-blue); margin-bottom: var(--spacing-2);">
+                            Student</div>
+                        <div class="screen-list">
+                            <ul style="list-style: none; padding: 0;">
+                                <li>Dashboard</li>
+                                <li>Search</li>
+                                <li>Scholarship Details</li>
+                                <li>Apply Wizard</li>
+                                <li>Upload Documents</li>
+                                <li>Review & Submit</li>
+                                <li>Track Status</li>
+                                <li>History</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Admin Screens -->
+                    <div style="border-left: 2px solid #8B5CF6; padding-left: var(--spacing-4);">
+                        <div
+                            style="font-size: 0.85rem; font-weight: 600; color: #8B5CF6; margin-bottom: var(--spacing-2);">
+                            Admin</div>
+                        <div class="screen-list">
+                            <ul style="list-style: none; padding: 0;">
+                                <li>Dashboard</li>
+                                <li>Manage Scholarships</li>
+                                <li>Configure Rules</li>
+                                <li>Eligibility Check</li>
+                                <li>Document Review</li>
+                                <li>Review Applications</li>
+                                <li>Finalize Awards</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Evaluation Screens -->
+                    <div style="border-left: 2px solid #F59E0B; padding-left: var(--spacing-4);">
+                        <div
+                            style="font-size: 0.85rem; font-weight: 600; color: #F59E0B; margin-bottom: var(--spacing-2);">
+                            Evaluation</div>
+                        <div class="screen-list">
+                            <ul style="list-style: none; padding: 0;">
+                                <li>Dashboard</li>
+                                <li>Candidate Profiles</li>
+                                <li>Interview Scores</li>
+                                <li>Ranking Summary</li>
+                                <li>Rankings List</li>
+                                <li>Analytics</li>
+                                <li>Modify Weights</li>
+                                <li>Final Merit List</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Award Screens -->
+                    <div style="border-left: 2px solid #10B981; padding-left: var(--spacing-4);">
+                        <div
+                            style="font-size: 0.85rem; font-weight: 600; color: #10B981; margin-bottom: var(--spacing-2);">
+                            Award Mgmt</div>
+                        <div class="screen-list">
+                            <ul style="list-style: none; padding: 0;">
+                                <li>Dashboard</li>
+                                <li>Manage Payouts</li>
+                                <li>Bank Verification</li>
+                                <li>Award Letters</li>
+                                <li>Verify Eligibility</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Reporting Screens -->
+                    <div style="border-left: 2px solid #3B82F6; padding-left: var(--spacing-4);">
+                        <div
+                            style="font-size: 0.85rem; font-weight: 600; color: #3B82F6; margin-bottom: var(--spacing-2);">
+                            Reporting</div>
+                        <div class="screen-list">
+                            <ul style="list-style: none; padding: 0;">
+                                <li>Scholarship Report</li>
+                                <li>Eligibility Report</li>
+                                <li>Ranking Report</li>
+                                <li>Payout Report</li>
+                                <li>Award Archive</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Roles & Access -->
+        <div style="margin-bottom: var(--spacing-12);">
+            <h2 class="text-h2" style="margin-bottom: var(--spacing-6);">User Roles & Access</h2>
+
+            <!-- Student Role -->
+            <div class="user-role">
+                <div class="user-role-icon">👨‍🎓</div>
+                <div class="user-role-content">
+                    <h4>Student</h4>
+                    <p>The primary user of the application portal. Students can search for scholarships, submit
+                        applications, upload supporting documents, and track their application status in real-time.</p>
+                    <div class="screen-list">
+                        <strong style="font-size: 0.85rem;">Access to:</strong>
+                        <ul style="list-style: none; padding: var(--spacing-2) 0; margin: 0;">
+                            <li>Personal Dashboard</li>
+                            <li>Scholarship Directory</li>
+                            <li>Application Forms</li>
+                            <li>Document Upload</li>
+                            <li>Status Tracking</li>
+                            <li>Application History</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administrator Role -->
+            <div class="user-role">
+                <div class="user-role-icon">⚙️</div>
+                <div class="user-role-content">
+                    <h4>Administrator</h4>
+                    <p>System managers who handle scholarship configuration, eligibility rule definition, and
+                        application reviews. They manage the operational aspects of the scholarship program.</p>
+                    <div class="screen-list">
+                        <strong style="font-size: 0.85rem;">Access to:</strong>
+                        <ul style="list-style: none; padding: var(--spacing-2) 0; margin: 0;">
+                            <li>Admin Dashboard</li>
+                            <li>Scholarship Management</li>
+                            <li>Rule Configuration</li>
+                            <li>Eligibility Screening</li>
+                            <li>Document Verification</li>
+                            <li>Application Review</li>
+                            <li>Award Allocation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluator Role -->
+            <div class="user-role">
+                <div class="user-role-icon">⭐</div>
+                <div class="user-role-content">
+                    <h4>Evaluator / Interview Committee</h4>
+                    <p>Evaluation specialists who assess candidates through interviews and scoring. They manage the
+                        evaluation workflow and contribute to merit-based rankings.</p>
+                    <div class="screen-list">
+                        <strong style="font-size: 0.85rem;">Access to:</strong>
+                        <ul style="list-style: none; padding: var(--spacing-2) 0; margin: 0;">
+                            <li>Evaluation Dashboard</li>
+                            <li>Candidate Profiles</li>
+                            <li>Interview Scoring</li>
+                            <li>Ranking Reviews</li>
+                            <li>Analytics</li>
+                            <li>Weight Configuration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finance Role -->
+            <div class="user-role">
+                <div class="user-role-icon">💰</div>
+                <div class="user-role-content">
+                    <h4>Finance & Awards Officer</h4>
+                    <p>Financial professionals responsible for award letter generation, bank verification, and payout
+                        processing. They ensure accurate and timely disbursement of awards.</p>
+                    <div class="screen-list">
+                        <strong style="font-size: 0.85rem;">Access to:</strong>
+                        <ul style="list-style: none; padding: var(--spacing-2) 0; margin: 0;">
+                            <li>Award Dashboard</li>
+                            <li>Payout Management</li>
+                            <li>Bank Verification</li>
+                            <li>Award Letters</li>
+                            <li>Eligibility Verification</li>
+                            <li>Reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership Role -->
+            <div class="user-role">
+                <div class="user-role-icon">👔</div>
+                <div class="user-role-content">
+                    <h4>University Leadership</h4>
+                    <p>Executive decision-makers who need high-level insights into the scholarship program. They access
+                        reports and analytics for strategic planning and oversight.</p>
+                    <div class="screen-list">
+                        <strong style="font-size: 0.85rem;">Access to:</strong>
+                        <ul style="list-style: none; padding: var(--spacing-2) 0; margin: 0;">
+                            <li>Dashboards & Reports</li>
+                            <li>Analytics & Insights</li>
+                            <li>Program Statistics</li>
+                            <li>Export Reports</li>
+                            <li>Historical Data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Workflows -->
+        <div style="margin-bottom: var(--spacing-12);">
+            <h2 class="text-h2" style="margin-bottom: var(--spacing-6);">Core Workflows</h2>
+
+            <!-- Student Application Workflow -->
+            <div class="workflow-section">
+                <h3 style="margin-bottom: var(--spacing-4); color: var(--primary-blue);">1. Student Application Workflow
+                </h3>
+                <div class="workflow-box">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Authentication</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Student logs in to personal
+                                dashboard</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>Discovery</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Search and filter scholarships
+                                by type, amount, and deadline</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>Review Details</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">View scholarship requirements
+                                and eligibility criteria</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <strong>Apply</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Complete multi-step application
+                                form with all required information</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">5</div>
+                        <div>
+                            <strong>Upload Documents</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Submit supporting documents
+                                (transcript, ID, income proof, etc.)</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">6</div>
+                        <div>
+                            <strong>Track Status</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Monitor application progress
+                                through timeline and notifications</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Review Workflow -->
+            <div class="workflow-section">
+                <h3 style="margin-bottom: var(--spacing-4); color: #8B5CF6;">2. Admin Review & Approval Workflow</h3>
+                <div class="workflow-box">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Receive Applications</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">View all submitted applications
+                                in admin dashboard</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>Automated Screening</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Run eligibility checks against
+                                configured criteria</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>Document Verification</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Review and verify submitted
+                                documents</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <strong>Manual Review</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Assess application completeness
+                                and quality</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">5</div>
+                        <div>
+                            <strong>Shortlist</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Identify qualified candidates
+                                for further evaluation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluation Workflow -->
+            <div class="workflow-section">
+                <h3 style="margin-bottom: var(--spacing-4); color: #F59E0B;">3. Evaluation & Ranking Workflow</h3>
+                <div class="workflow-box">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Schedule Interviews</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Set interview dates and times
+                                for shortlisted candidates</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>Conduct Interviews</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Meet with candidates and assess
+                                their suitability</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>Record Scores</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Input scores for academic,
+                                interview, and motivation criteria</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <strong>Generate Rankings</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Apply weightage and generate
+                                merit-based rankings</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">5</div>
+                        <div>
+                            <strong>Review & Approve</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Leadership approval of final
+                                rankings and award recommendations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Award Workflow -->
+            <div class="workflow-section">
+                <h3 style="margin-bottom: var(--spacing-4); color: #10B981;">4. Award & Payout Workflow</h3>
+                <div class="workflow-box">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Finalize Awards</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Lock in final award decisions
+                                and amounts</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>Generate Award Letters</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Create official award letters
+                                in PDF format</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>Collect Bank Details</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Request and verify student bank
+                                account information</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <strong>Process Payouts</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Execute fund transfers to
+                                verified bank accounts</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">5</div>
+                        <div>
+                            <strong>Ongoing Monitoring</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Verify continued eligibility
+                                (CGPA, enrollment status)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reporting Workflow -->
+            <div class="workflow-section">
+                <h3 style="margin-bottom: var(--spacing-4); color: #3B82F6;">5. Reporting & Analytics Workflow</h3>
+                <div class="workflow-box">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Generate Reports</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Create scholarship,
+                                eligibility, ranking, and payout reports</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>Filter & Search</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Apply date ranges and search
+                                criteria to data</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>View Analytics</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Analyze trends, statistics, and
+                                performance metrics</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <strong>Export Data</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">Export reports as PDF or Excel
+                                for further analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Structure -->
+        <div style="margin-bottom: var(--spacing-12);">
+            <h2 class="text-h2" style="margin-bottom: var(--spacing-6);">Navigation Structure</h2>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-6);">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Primary Navigation</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: var(--spacing-4);">
+                            Left sidebar with main menu items:</p>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                            <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-100);">📊
+                                Dashboard</li>
+                            <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-100);">Main
+                                module links</li>
+                            <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-100);">
+                                Sub-module items</li>
+                            <li style="padding: var(--spacing-2) 0;">User account settings</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Top Navigation</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: var(--spacing-4);">
+                            Header bar with:</p>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                            <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-100);">Page
+                                title</li>
+                            <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-100);">Search
+                                functionality</li>
+                            <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-100);">
+                                Notifications</li>
+                            <li style="padding: var(--spacing-2) 0;">User profile menu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Breadcrumbs</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: var(--spacing-4);">
+                            Contextual navigation:</p>
+                        <div
+                            style="background-color: var(--gray-50); padding: var(--spacing-3); border-radius: var(--radius-md); font-size: 0.85rem;">
+                            Dashboard > Scholarships > Details
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Tabs & Sections</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: var(--spacing-4);">
+                            Content organization:</p>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                            <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-100);">Overview
+                                tab</li>
+                            <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-100);">Details
+                                tab</li>
+                            <li style="padding: var(--spacing-2) 0;">Documents tab</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Flow -->
+        <div style="margin-bottom: var(--spacing-12);">
+            <h2 class="text-h2" style="margin-bottom: var(--spacing-6);">Data & Information Flow</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Key Data Entities</div>
+                </div>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-6); padding: var(--spacing-6);">
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-3); color: var(--primary-blue);">
+                            Students</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Personal info, academic records,
+                            bank details, application history</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-3); color: var(--primary-blue);">
+                            Scholarships</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Name, amount, duration, eligibility
+                            criteria, deadlines, quotas</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-3); color: var(--primary-blue);">
+                            Applications</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Form data, status, timeline,
+                            documents, scores, decisions</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-3); color: var(--primary-blue);">
+                            Evaluations</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Interview scores, rankings, notes,
+                            recommendations, weights</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-3); color: var(--primary-blue);">
+                            Awards</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Award letters, payout records,
+                            eligibility verification</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-3); color: var(--primary-blue);">
+                            Reports</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Statistics, trends, analytics,
+                            historical records, exports</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+            style="text-align: center; padding: var(--spacing-12) 0; color: var(--text-secondary); border-top: 1px solid var(--gray-200);">
+            <p>University Scholarship Management System - Information Architecture</p>
+            <p style="font-size: 0.85rem;">Complete system structure and user workflow documentation</p>
+        </div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+</body>
+
+</html>

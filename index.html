@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Scholarship Management System - Design Prototype</title>
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <style>
+        .welcome-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            color: var(--text-inverse);
+            padding: var(--spacing-16) var(--spacing-8);
+            text-align: center;
+            border-radius: var(--radius-2xl);
+            margin-bottom: var(--spacing-12);
+        }
+
+        .welcome-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .welcome-hero p {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            margin-bottom: var(--spacing-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-12);
+        }
+
+        .module-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .module-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+            transform: translateY(-4px);
+        }
+
+        .module-icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--primary-blue-light);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .module-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .module-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        .module-screens {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-2);
+        }
+
+        .module-screen {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding: var(--spacing-2) 0;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-screen:last-child {
+            border-bottom: none;
+        }
+
+        .module-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .module-link:hover {
+            text-decoration: underline;
+        }
+
+        .design-system-section {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .design-components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-6);
+            margin-top: var(--spacing-6);
+        }
+
+        .component-demo {
+            background-color: var(--gray-50);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .component-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-6);
+        }
+
+        .color-swatch {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .color-box {
+            height: 80px;
+        }
+
+        .color-label {
+            padding: var(--spacing-3);
+            background-color: var(--gray-50);
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .flow-diagram {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .flow-step {
+            background-color: var(--primary-blue-light);
+            border: 2px solid var(--primary-blue);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-4);
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-4);
+            position: relative;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: var(--spacing-2) 0;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .welcome-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .module-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="top-bar" style="position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--primary-blue);">
+        <div class="top-bar-left" style="flex: 1;">
+            <h1 style="margin: 0; color: var(--primary-blue); font-size: 1.5rem;">🎓 Scholarship System</h1>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">UI/UX Design Prototype</p>
+        </div>
+        <div class="top-bar-right">
+            <span style="font-size: 0.9rem; color: var(--text-secondary);">High-Fidelity Design System</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="welcome-hero" style="margin-top: var(--spacing-8);">
+            <h1>University Scholarship Management System</h1>
+            <p>A complete frontend-only design system featuring all UI screens, components, wireframes, and interactive
+                prototypes for a modern scholarship management platform.</p>
+        </div>
+
+        <!-- Modules Section -->
+        <div style="margin-bottom: var(--spacing-12);">
+            <h2 class="text-h2" style="margin-bottom: var(--spacing-8);">📦 System Modules</h2>
+
+            <div class="module-grid">
+                <!-- Module 1: Student Portal -->
+                <div class="module-card">
+                    <div class="module-icon">👨‍🎓</div>
+                    <div class="module-title">Module 1: Student Portal</div>
+                    <div class="module-description">Allow students to search scholarships, submit applications, upload
+                        documents, and track application progress.</div>
+                    <div class="module-screens">
+                        <div class="module-screen">
+                            <span>Student Dashboard</span>
+                            <a href="modules/student/dashboard.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Search Scholarships</span>
+                            <a href="modules/student/search.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Scholarship Details</span>
+                            <a href="modules/student/details.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Apply Wizard</span>
+                            <a href="modules/student/apply.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Upload Documents</span>
+                            <a href="modules/student/upload.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Application Status</span>
+                            <a href="modules/student/status.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Application History</span>
+                            <a href="modules/student/history.html" class="module-link">View →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2: Admin & Eligibility -->
+                <div class="module-card">
+                    <div class="module-icon">⚙️</div>
+                    <div class="module-title">Module 2: Admin & Eligibility</div>
+                    <div class="module-description">Manage scholarships, define eligibility rules, verify documents, and
+                        finalize allocations.</div>
+                    <div class="module-screens">
+                        <div class="module-screen">
+                            <span>Admin Dashboard</span>
+                            <a href="modules/admin/dashboard.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Configure Scholarships</span>
+                            <a href="modules/admin/scholarships.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Configure Rules</span>
+                            <a href="modules/admin/rules.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Eligibility Screening</span>
+                            <a href="modules/admin/screening.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Document Verification</span>
+                            <a href="modules/admin/verification.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Review Applications</span>
+                            <a href="modules/admin/review.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Finalize Allocation</span>
+                            <a href="modules/admin/allocation.html" class="module-link">View →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3: Evaluation -->
+                <div class="module-card">
+                    <div class="module-icon">⭐</div>
+                    <div class="module-title">Module 3: Evaluation & Ranking</div>
+                    <div class="module-description">Manage interview evaluations and scholarship ranking based on merit
+                        and other criteria.</div>
+                    <div class="module-screens">
+                        <div class="module-screen">
+                            <span>Evaluation Dashboard</span>
+                            <a href="modules/evaluation/dashboard.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Candidate Profiles</span>
+                            <a href="modules/evaluation/profiles.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Record Interview Scores</span>
+                            <a href="modules/evaluation/scores.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Ranking List</span>
+                            <a href="modules/evaluation/ranking.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Ranking Analytics</span>
+                            <a href="modules/evaluation/analytics.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Modify Weights</span>
+                            <a href="modules/evaluation/weights.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Final Merit List</span>
+                            <a href="modules/evaluation/merit.html" class="module-link">View →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4: Award Management -->
+                <div class="module-card">
+                    <div class="module-icon">🏆</div>
+                    <div class="module-title">Module 4: Award Management</div>
+                    <div class="module-description">Manage award payouts, verify bank details, generate award letters,
+                        and track ongoing eligibility.</div>
+                    <div class="module-screens">
+                        <div class="module-screen">
+                            <span>Award Dashboard</span>
+                            <a href="modules/award/dashboard.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Manage Payouts</span>
+                            <a href="modules/award/payouts.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Bank Verification</span>
+                            <a href="modules/award/bank.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Award Letters</span>
+                            <a href="modules/award/letters.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Verify Eligibility</span>
+                            <a href="modules/award/eligibility.html" class="module-link">View →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 5: Reporting -->
+                <div class="module-card">
+                    <div class="module-icon">📊</div>
+                    <div class="module-title">Module 5: Reporting</div>
+                    <div class="module-description">Professional reports for scholarships, eligibility, ranking,
+                        payouts, and award letters.</div>
+                    <div class="module-screens">
+                        <div class="module-screen">
+                            <span>Scholarship Report</span>
+                            <a href="modules/reporting/scholarships.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Eligibility Report</span>
+                            <a href="modules/reporting/eligibility.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Ranking Report</span>
+                            <a href="modules/reporting/ranking.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Payout Report</span>
+                            <a href="modules/reporting/payout.html" class="module-link">View →</a>
+                        </div>
+                        <div class="module-screen">
+                            <span>Award Archive</span>
+                            <a href="modules/reporting/archive.html" class="module-link">View →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design System Documentation -->
+        <div class="design-system-section">
+            <h2 class="text-h2">🎨 Design System</h2>
+            <p class="text-body text-secondary">Complete component library and design guidelines used throughout the
+                system.</p>
+
+            <!-- Color Palette -->
+            <div style="margin-top: var(--spacing-8);">
+                <h3 class="text-h4">Color Palette</h3>
+                <div class="color-palette">
+                    <div class="color-swatch">
+                        <div class="color-box" style="background-color: var(--primary-blue);"></div>
+                        <div class="color-label">Primary Blue<br>#0052CC</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background-color: var(--status-approved);"></div>
+                        <div class="color-label">Approved<br>#10B981</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background-color: var(--status-rejected);"></div>
+                        <div class="color-label">Rejected<br>#EF4444</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background-color: var(--status-pending);"></div>
+                        <div class="color-label">Pending<br>#F59E0B</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background-color: var(--status-review);"></div>
+                        <div class="color-label">Under Review<br>#3B82F6</div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-box" style="background-color: var(--status-shortlisted);"></div>
+                        <div class="color-label">Shortlisted<br>#8B5CF6</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Components -->
+            <div style="margin-top: var(--spacing-8);">
+                <h3 class="text-h4">Core Components</h3>
+                <div class="design-components-grid">
+                    <div class="component-demo">
+                        <div class="component-label">Primary Button</div>
+                        <button class="btn btn-primary">Click Me</button>
+                    </div>
+                    <div class="component-demo">
+                        <div class="component-label">Secondary Button</div>
+                        <button class="btn btn-secondary">Click Me</button>
+                    </div>
+                    <div class="component-demo">
+                        <div class="component-label">Success Badge</div>
+                        <span class="badge badge-approved">Approved</span>
+                    </div>
+                    <div class="component-demo">
+                        <div class="component-label">Error Badge</div>
+                        <span class="badge badge-rejected">Rejected</span>
+                    </div>
+                    <div class="component-demo">
+                        <div class="component-label">Pending Badge</div>
+                        <span class="badge badge-pending">Pending</span>
+                    </div>
+                    <div class="component-demo">
+                        <div class="component-label">Input Field</div>
+                        <input type="text" placeholder="Enter text...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design System Link -->
+            <div style="margin-top: var(--spacing-8); text-align: center;">
+                <a href="design-system/index.html" class="btn btn-primary btn-lg">📖 View Complete Design System</a>
+            </div>
+        </div>
+
+        <!-- User Flow Diagrams -->
+        <div class="design-system-section">
+            <h2 class="text-h2">🔄 User Flow Diagrams</h2>
+
+            <h3 class="text-h4">Student Application Flow</h3>
+            <div class="flow-diagram">
+                <div class="flow-step">Search & Browse Scholarships</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">View Scholarship Details</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Start Application</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Fill Personal Information</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Fill Academic Information</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Upload Supporting Documents</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Review & Submit Application</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Track Application Status</div>
+            </div>
+
+            <h3 class="text-h4">Admin Review & Award Flow</h3>
+            <div class="flow-diagram">
+                <div class="flow-step">Receive Applications</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Automated Eligibility Screening</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Document Verification</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Manual Application Review</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Interview Evaluation</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Merit-Based Ranking</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Final Allocation & Awards</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Generate Award Letters</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">Process Payouts</div>
+            </div>
+        </div>
+
+        <!-- Wireframes Section -->
+        <div class="design-system-section">
+            <h2 class="text-h2">📐 Wireframes & Prototypes</h2>
+            <p class="text-body text-secondary">Access wireframes, desktop mockups, and mobile responsive designs.</p>
+            <div style="margin-top: var(--spacing-6); display: flex; gap: var(--spacing-4); flex-wrap: wrap;">
+                <a href="wireframes/student-portal.html" class="btn btn-primary">Student Portal Wireframes</a>
+                <a href="wireframes/admin-portal.html" class="btn btn-secondary">Admin Portal Wireframes</a>
+                <a href="wireframes/evaluation-portal.html" class="btn btn-secondary">Evaluation Portal Wireframes</a>
+            </div>
+        </div>
+
+        <!-- Project Documentation -->
+        <div class="design-system-section">
+            <h2 class="text-h2">📚 Documentation</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-6); margin-top: var(--spacing-6);">
+                <div
+                    style="background-color: var(--gray-50); padding: var(--spacing-6); border-radius: var(--radius-lg);">
+                    <h4 style="margin-bottom: var(--spacing-2);">Design System</h4>
+                    <p class="text-secondary" style="margin-bottom: var(--spacing-4);">Color palette, typography,
+                        spacing, and component specifications.</p>
+                    <a href="#" class="module-link">Read More →</a>
+                </div>
+                <div
+                    style="background-color: var(--gray-50); padding: var(--spacing-6); border-radius: var(--radius-lg);">
+                    <h4 style="margin-bottom: var(--spacing-2);">Information Architecture</h4>
+                    <p class="text-secondary" style="margin-bottom: var(--spacing-4);">Complete sitemap showing all
+                        screens, modules, and navigation structure.</p>
+                    <a href="#" class="module-link">View Sitemap →</a>
+                </div>
+                <div
+                    style="background-color: var(--gray-50); padding: var(--spacing-6); border-radius: var(--radius-lg);">
+                    <h4 style="margin-bottom: var(--spacing-2);">Component Library</h4>
+                    <p class="text-secondary" style="margin-bottom: var(--spacing-4);">Reusable components: buttons,
+                        cards, tables, modals, badges, and more.</p>
+                    <a href="design-system/index.html" class="module-link">Browse Components →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+            style="text-align: center; padding: var(--spacing-12) 0; color: var(--text-secondary); border-top: 1px solid var(--gray-200); margin-top: var(--spacing-12);">
+            <p style="margin-bottom: var(--spacing-2);">University Scholarship Management System</p>
+            <p style="font-size: 0.875rem; margin-bottom: var(--spacing-4);">High-Fidelity Frontend Design | UI/UX
+                Prototype | Design System</p>
+            <p style="font-size: 0.85rem;">This is a design prototype focused on frontend user experience and interface
+                design only.</p>
+        </div>
+    </div>
+
+    <script src="assets/js/components.js"></script>
+</body>
+
+</html>
