@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive - Reporting Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Reports</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="scholarships.html">📊 Scholarships</a></li>
+                <li><a href="eligibility.html">✓ Eligibility Report</a></li>
+                <li><a href="ranking.html">🏆 Ranking Report</a></li>
+                <li><a href="payout.html">💰 Payout Report</a></li>
+                <li><a href="archive.html" class="active">📁 Archive</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Historical Awards Archive</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Report Admin</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div style="display: flex; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                    <input type="text" placeholder="Search by student name or ID..."
+                        style="flex: 1; padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md);">
+                    <select
+                        style="padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md); min-width: 120px;">
+                        <option>All Years</option>
+                        <option>2024</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+                    </select>
+                    <select
+                        style="padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md); min-width: 120px;">
+                        <option>All Scholarships</option>
+                        <option>Excellence</option>
+                        <option>Merit-Based</option>
+                        <option>Faculty Excellence</option>
+                    </select>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                    <div class="stat-card">
+                        <div class="stat-value">312</div>
+                        <div class="stat-label">Total Recipients (All Time)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--primary-blue);">RM 3.2M</div>
+                        <div class="stat-label">Total Distributed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Years of Data</div>
+                    </div>
+                </div>
+
+                <!-- Archive Records -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Award Records</div>
+                    </div>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Student Name</th>
+                                    <th>Scholarship</th>
+                                    <th>Award Amount</th>
+                                    <th>Status</th>
+                                    <th>Program</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background-color: #F3F4F6;">
+                                    <td style="font-weight: 700;">2024</td>
+                                    <td><strong>John David Doe</strong></td>
+                                    <td>Excellence</td>
+                                    <td>RM 15,000</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>Computer Science</td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue);">View</a></td>
+                                </tr>
+                                <tr style="background-color: #F3F4F6;">
+                                    <td style="font-weight: 700;">2024</td>
+                                    <td><strong>Sarah Binti Ahmad</strong></td>
+                                    <td>Merit-Based</td>
+                                    <td>RM 10,000</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>Engineering</td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue);">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700;">2023</td>
+                                    <td><strong>Michael Chen</strong></td>
+                                    <td>Excellence</td>
+                                    <td>RM 15,000</td>
+                                    <td><span class="badge"
+                                            style="background-color: #E5E7EB; color: #374151;">Completed</span></td>
+                                    <td>Business</td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue);">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700;">2023</td>
+                                    <td><strong>Lisa Wong</strong></td>
+                                    <td>Faculty Excellence</td>
+                                    <td>RM 8,000</td>
+                                    <td><span class="badge"
+                                            style="background-color: #E5E7EB; color: #374151;">Completed</span></td>
+                                    <td>Law</td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue);">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700;">2022</td>
+                                    <td><strong>Hassan Ibrahim</strong></td>
+                                    <td>Merit-Based</td>
+                                    <td>RM 10,000</td>
+                                    <td><span class="badge"
+                                            style="background-color: #E5E7EB; color: #374151;">Completed</span></td>
+                                    <td>Medicine</td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue);">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Year Summary -->
+                <div class="card" style="margin-top: var(--spacing-6);">
+                    <div class="card-header">
+                        <div class="card-title">Annual Summary</div>
+                    </div>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>Total Recipients</th>
+                                    <th>Total Amount</th>
+                                    <th>Avg Award</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background-color: #FEF3C7;">
+                                    <td style="font-weight: 700;">2024</td>
+                                    <td>156</td>
+                                    <td>RM 1,400,000</td>
+                                    <td>RM 8,974</td>
+                                    <td><span class="badge badge-warning">In Progress</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700;">2023</td>
+                                    <td>148</td>
+                                    <td>RM 1,320,000</td>
+                                    <td>RM 8,919</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700;">2022</td>
+                                    <td>135</td>
+                                    <td>RM 1,210,000</td>
+                                    <td>RM 8,963</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700;">2021</td>
+                                    <td>121</td>
+                                    <td>RM 1,080,000</td>
+                                    <td>RM 8,926</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

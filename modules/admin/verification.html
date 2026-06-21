@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Verification - Admin Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Admin Portal</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="scholarships.html">🎯 Manage Scholarships</a></li>
+                <li><a href="rules.html">⚙️ Configure Rules</a></li>
+                <li><a href="screening.html">🔍 Eligibility Screening</a></li>
+                <li><a href="verification.html" class="active">✓ Document Verification</a></li>
+                <li><a href="review.html">📋 Review Applications</a></li>
+                <li><a href="allocation.html">🏆 Finalize Awards</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Document Verification</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Admin User</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-6);">
+                    <div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Document Checklist - John David Doe</div>
+                            </div>
+                            <div class="card-content">
+                                <div style="display: grid; gap: var(--spacing-4);">
+                                    <div
+                                        style="padding: var(--spacing-4); border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                                        <div
+                                            style="display: flex; align-items: center; gap: var(--spacing-3); margin-bottom: var(--spacing-2);">
+                                            <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                            <span style="font-weight: 600;">Academic Transcript</span>
+                                            <span class="badge badge-success" style="margin-left: auto;">Verified</span>
+                                        </div>
+                                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                                            Academic_Transcript_2024.pdf (245 KB)</p>
+                                    </div>
+
+                                    <div
+                                        style="padding: var(--spacing-4); border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                                        <div
+                                            style="display: flex; align-items: center; gap: var(--spacing-3); margin-bottom: var(--spacing-2);">
+                                            <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                            <span style="font-weight: 600;">National ID / Passport</span>
+                                            <span class="badge badge-success" style="margin-left: auto;">Verified</span>
+                                        </div>
+                                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                                            MyKad_Front_and_Back.pdf (385 KB)</p>
+                                    </div>
+
+                                    <div
+                                        style="padding: var(--spacing-4); border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                                        <div
+                                            style="display: flex; align-items: center; gap: var(--spacing-3); margin-bottom: var(--spacing-2);">
+                                            <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                            <span style="font-weight: 600;">Personal Statement</span>
+                                            <span class="badge badge-success" style="margin-left: auto;">Verified</span>
+                                        </div>
+                                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                                            Personal_Statement.pdf (156 KB)</p>
+                                    </div>
+
+                                    <div
+                                        style="padding: var(--spacing-4); border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                                        <div
+                                            style="display: flex; align-items: center; gap: var(--spacing-3); margin-bottom: var(--spacing-2);">
+                                            <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                            <span style="font-weight: 600;">Letter of Recommendation</span>
+                                            <span class="badge badge-success" style="margin-left: auto;">Verified</span>
+                                        </div>
+                                        <p style="margin: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                                            Recommendation_Letter.pdf (234 KB)</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); margin-top: var(--spacing-6); padding-top: var(--spacing-6); border-top: 1px solid var(--gray-200);">
+                                    <button class="btn btn-secondary">Reject Application</button>
+                                    <button class="btn btn-success">Approve & Forward</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Application Info</div>
+                            </div>
+                            <div class="card-content" style="font-size: 0.9rem;">
+                                <div style="margin-bottom: var(--spacing-4);">
+                                    <strong>Scholarship:</strong>
+                                    <p style="margin: var(--spacing-1) 0 0 0;">Excellence Scholarship</p>
+                                </div>
+                                <div style="margin-bottom: var(--spacing-4);">
+                                    <strong>Applied Date:</strong>
+                                    <p style="margin: var(--spacing-1) 0 0 0;">15 November 2023</p>
+                                </div>
+                                <div style="margin-bottom: var(--spacing-4);">
+                                    <strong>Eligibility:</strong>
+                                    <p style="margin: var(--spacing-1) 0 0 0;"><span
+                                            class="badge badge-success">Eligible</span></p>
+                                </div>
+                                <div style="margin-bottom: var(--spacing-4);">
+                                    <strong>Status:</strong>
+                                    <p style="margin: var(--spacing-1) 0 0 0;"><span class="badge badge-warning">Under
+                                            Verification</span></p>
+                                </div>
+                                <div style="margin-bottom: var(--spacing-4);">
+                                    <strong>Documents:</strong>
+                                    <p style="margin: var(--spacing-1) 0 0 0;">4 of 4 received</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

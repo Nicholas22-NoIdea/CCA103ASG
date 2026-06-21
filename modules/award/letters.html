@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Award Letters - Award Management</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Awards</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="payouts.html">💰 Manage Payouts</a></li>
+                <li><a href="bank.html">🏦 Bank Verification</a></li>
+                <li><a href="letters.html" class="active">📄 Award Letters</a></li>
+                <li><a href="eligibility.html">✓ Verify Eligibility</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Generate Award Letters</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Finance Officer</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-6);">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Award Letter Preview - John David Doe</div>
+                        </div>
+                        <div
+                            style="padding: var(--spacing-6); background-color: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); margin: var(--spacing-6); font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.8;">
+                            <div style="text-align: center; margin-bottom: var(--spacing-4);">
+                                <div style="font-size: 1.2rem; font-weight: 700;">University Logo</div>
+                                <div style="font-size: 1.1rem; font-weight: 700; margin-top: var(--spacing-2);">
+                                    SCHOLARSHIP AWARD LETTER</div>
+                            </div>
+
+                            <div style="margin-bottom: var(--spacing-4);">
+                                <div style="font-weight: 600;">Date: 20 January 2024</div>
+                            </div>
+
+                            <div style="margin-bottom: var(--spacing-4);">
+                                <div style="font-weight: 600;">Dear John David Doe,</div>
+                            </div>
+
+                            <div style="margin-bottom: var(--spacing-4); line-height: 1.6;">
+                                <p>Congratulations! We are pleased to inform you that you have been selected as a
+                                    recipient of the Excellence Scholarship Program for the academic year 2024.</p>
+                                <p><strong>Award Details:</strong></p>
+                                <p>
+                                    Scholarship: Excellence Scholarship Program<br>
+                                    Award Amount: RM 15,000<br>
+                                    Duration: 1 Year (Renewable)<br>
+                                    Disbursement Date: 25 January 2024
+                                </p>
+                            </div>
+
+                            <div style="margin-bottom: var(--spacing-4); line-height: 1.6;">
+                                <p>This award recognizes your academic excellence and outstanding performance. The funds
+                                    will be transferred to your designated bank account.</p>
+                            </div>
+
+                            <div style="margin-bottom: var(--spacing-4);">
+                                <p>Sincerely,</p>
+                                <p style="margin-top: var(--spacing-4);">Scholarship Office<br>University Administration
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Letter Status</div>
+                            </div>
+                            <div class="card-content">
+                                <div
+                                    style="margin-bottom: var(--spacing-4); padding: var(--spacing-4); background-color: var(--primary-blue-light); border-radius: var(--radius-md);">
+                                    <div style="font-weight: 600; color: var(--primary-blue);">Ready for Generation
+                                    </div>
+                                    <p style="margin: var(--spacing-1) 0 0 0; font-size: 0.85rem;">All requirements met
+                                    </p>
+                                </div>
+                                <div style="font-size: 0.9rem;">
+                                    <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Recipient:</strong> John David
+                                        Doe</p>
+                                    <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Award:</strong> RM 15,000</p>
+                                    <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Status:</strong> Approved</p>
+                                    <p style="margin: 0;"><strong>Generated:</strong> No</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Actions</div>
+                            </div>
+                            <div class="card-content" style="display: grid; gap: var(--spacing-3);">
+                                <button class="btn btn-primary" style="width: 100%;">Generate PDF</button>
+                                <button class="btn btn-secondary" style="width: 100%;">Preview</button>
+                                <button class="btn btn-ghost" style="width: 100%;">Send Email</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bulk Generation -->
+                <div class="card" style="margin-top: var(--spacing-6);">
+                    <div class="card-header">
+                        <div class="card-title">Bulk Generate Award Letters</div>
+                    </div>
+                    <div class="card-content">
+                        <div style="display: flex; gap: var(--spacing-4); align-items: center;">
+                            <div style="flex: 1;">
+                                <label style="display: block; font-weight: 600; margin-bottom: var(--spacing-2);">Select
+                                    Scholarship Program</label>
+                                <select
+                                    style="width: 100%; padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md);">
+                                    <option>-- Select Scholarship --</option>
+                                    <option selected>Excellence Scholarship (15 letters)</option>
+                                    <option>Merit-Based Award (20 letters)</option>
+                                    <option>Faculty Excellence (12 letters)</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" style="margin-top: var(--spacing-8);">Generate All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

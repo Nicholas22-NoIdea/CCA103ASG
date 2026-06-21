@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System - Scholarship System</title>
+    <link rel="stylesheet" href="../assets/css/design-system.css">
+    <style>
+        .design-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .design-sidebar {
+            width: 280px;
+            background-color: var(--white);
+            border-right: 1px solid var(--gray-200);
+            padding: var(--spacing-6);
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .design-content {
+            flex: 1;
+            padding: var(--spacing-12);
+            overflow-y: auto;
+            max-width: 1200px;
+        }
+
+        .design-nav-link {
+            display: block;
+            padding: var(--spacing-3) 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+            padding-left: var(--spacing-3);
+            transition: all var(--transition-fast);
+        }
+
+        .design-nav-link:hover,
+        .design-nav-link.active {
+            color: var(--primary-blue);
+            border-left-color: var(--primary-blue);
+        }
+
+        .component-section {
+            margin-bottom: var(--spacing-12);
+            scroll-margin-top: 100px;
+        }
+
+        .component-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-4);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: var(--spacing-4);
+        }
+
+        .component-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-6);
+            line-height: 1.6;
+        }
+
+        .component-demo {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-6);
+            display: grid;
+            gap: var(--spacing-4);
+        }
+
+        .demo-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .demo-items {
+            display: flex;
+            gap: var(--spacing-4);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-4);
+        }
+
+        .color-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .color-preview {
+            height: 100px;
+        }
+
+        .color-info {
+            padding: var(--spacing-3);
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+        }
+
+        .color-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .color-value {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: monospace;
+        }
+
+        .spacing-demo {
+            display: flex;
+            gap: var(--spacing-4);
+            align-items: flex-end;
+        }
+
+        .spacing-box {
+            background-color: var(--primary-blue);
+            border-radius: var(--radius-md);
+        }
+
+        .typography-demo {
+            margin-bottom: var(--spacing-4);
+            padding: var(--spacing-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+
+        .code-block {
+            background-color: var(--gray-900);
+            color: #E5E7EB;
+            padding: var(--spacing-4);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .design-sidebar {
+                width: 200px;
+            }
+
+            .design-content {
+                padding: var(--spacing-6);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .design-layout {
+                flex-direction: column;
+            }
+
+            .design-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid var(--gray-200);
+                padding: var(--spacing-4);
+            }
+
+            .design-content {
+                padding: var(--spacing-4);
+            }
+
+            .demo-items {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .color-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="design-layout">
+        <!-- Design System Sidebar -->
+        <div class="design-sidebar">
+            <h3 style="margin-bottom: var(--spacing-6); font-size: 1.1rem;">Design System</h3>
+
+            <div style="display: flex; flex-direction: column; gap: var(--spacing-1);">
+                <a href="#colors" class="design-nav-link">🎨 Colors</a>
+                <a href="#typography" class="design-nav-link">✏️ Typography</a>
+                <a href="#spacing" class="design-nav-link">📏 Spacing</a>
+                <a href="#buttons" class="design-nav-link">🔘 Buttons</a>
+                <a href="#cards" class="design-nav-link">📇 Cards</a>
+                <a href="#forms" class="design-nav-link">📝 Forms</a>
+                <a href="#badges" class="design-nav-link">🏷️ Badges</a>
+                <a href="#tables" class="design-nav-link">📊 Tables</a>
+                <a href="#modals" class="design-nav-link">🪟 Modals</a>
+                <a href="#notifications" class="design-nav-link">🔔 Notifications</a>
+                <a href="#layouts" class="design-nav-link">📐 Layouts</a>
+            </div>
+        </div>
+
+        <!-- Design System Content -->
+        <div class="design-content">
+            <h1 class="text-h1">Design System Documentation</h1>
+            <p class="text-body text-secondary" style="margin-bottom: var(--spacing-8);">Complete component library and
+                design guidelines for the University Scholarship Management System.</p>
+
+            <!-- COLORS -->
+            <div class="component-section" id="colors">
+                <h2 class="component-title">🎨 Color Palette</h2>
+                <p class="component-description">Core colors used throughout the system for consistency and visual
+                    hierarchy.</p>
+
+                <h3 style="margin-top: var(--spacing-6); margin-bottom: var(--spacing-4); font-weight: 600;">Primary
+                    Colors</h3>
+                <div class="color-grid">
+                    <div class="color-card">
+                        <div class="color-preview" style="background-color: var(--primary-blue);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary Blue</div>
+                            <div class="color-value">#0052CC</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-preview" style="background-color: var(--primary-blue-light);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary Light</div>
+                            <div class="color-value">#E8F0FE</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-preview" style="background-color: var(--primary-blue-dark);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary Dark</div>
+                            <div class="color-value">#003B99</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: var(--spacing-6); margin-bottom: var(--spacing-4); font-weight: 600;">Status
+                    Colors</h3>
+                <div class="color-grid">
+                    <div class="color-card">
+                        <div class="color-preview" style="background-color: var(--status-approved);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Approved/Success</div>
+                            <div class="color-value">#10B981</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-preview" style="background-color: var(--status-rejected);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Rejected/Error</div>
+                            <div class="color-value">#EF4444</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-preview" style="background-color: var(--status-pending);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Pending/Warning</div>
+                            <div class="color-value">#F59E0B</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-preview" style="background-color: var(--status-review);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Under Review/Info</div>
+                            <div class="color-value">#3B82F6</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-preview" style="background-color: var(--status-shortlisted);"></div>
+                        <div class="color-info">
+                            <div class="color-name">Shortlisted</div>
+                            <div class="color-value">#8B5CF6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TYPOGRAPHY -->
+            <div class="component-section" id="typography">
+                <h2 class="component-title">✏️ Typography</h2>
+                <p class="component-description">Type scales and hierarchies for consistent visual communication.</p>
+
+                <div style="margin-top: var(--spacing-6);">
+                    <div class="typography-demo">
+                        <div class="text-h1">Heading 1 (H1) - 2.5rem, 700</div>
+                    </div>
+                    <div class="typography-demo">
+                        <div class="text-h2">Heading 2 (H2) - 2rem, 700</div>
+                    </div>
+                    <div class="typography-demo">
+                        <div class="text-h3">Heading 3 (H3) - 1.5rem, 700</div>
+                    </div>
+                    <div class="typography-demo">
+                        <div class="text-h4">Heading 4 (H4) - 1.25rem, 700</div>
+                    </div>
+                    <div class="typography-demo">
+                        <div class="text-h5">Heading 5 (H5) - 1rem, 700</div>
+                    </div>
+                    <div class="typography-demo">
+                        <div class="text-body-lg">Body Large - 1rem, 400</div>
+                    </div>
+                    <div class="typography-demo">
+                        <div class="text-body">Body Regular - 0.95rem, 400</div>
+                    </div>
+                    <div class="typography-demo">
+                        <div class="text-body-sm">Body Small - 0.875rem, 400</div>
+                    </div>
+                    <div class="typography-demo">
+                        <div class="text-caption">Caption - 0.75rem, 500, Uppercase</div>
+                    </div>
+                </div>
+
+                <p class="component-description" style="margin-top: var(--spacing-6);">Font Family: System Font Stack
+                    (-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, etc.)</p>
+            </div>
+
+            <!-- SPACING -->
+            <div class="component-section" id="spacing">
+                <h2 class="component-title">📏 Spacing System</h2>
+                <p class="component-description">8px-based spacing scale for consistent layout and rhythm.</p>
+
+                <div style="margin-top: var(--spacing-6); display: grid; gap: var(--spacing-4);">
+                    <div class="spacing-demo">
+                        <div style="flex-basis: 100%; font-size: 0.85rem; color: var(--text-secondary);">2px (0.5rem)
+                        </div>
+                        <div class="spacing-box" style="width: 2px; height: 60px;"></div>
+                    </div>
+                    <div class="spacing-demo">
+                        <div style="flex-basis: 100%; font-size: 0.85rem; color: var(--text-secondary);">4px (1rem)
+                        </div>
+                        <div class="spacing-box" style="width: 4px; height: 60px;"></div>
+                    </div>
+                    <div class="spacing-demo">
+                        <div style="flex-basis: 100%; font-size: 0.85rem; color: var(--text-secondary);">8px (2rem)
+                        </div>
+                        <div class="spacing-box" style="width: 8px; height: 60px;"></div>
+                    </div>
+                    <div class="spacing-demo">
+                        <div style="flex-basis: 100%; font-size: 0.85rem; color: var(--text-secondary);">16px (4rem)
+                        </div>
+                        <div class="spacing-box" style="width: 16px; height: 60px;"></div>
+                    </div>
+                    <div class="spacing-demo">
+                        <div style="flex-basis: 100%; font-size: 0.85rem; color: var(--text-secondary);">24px (6rem)
+                        </div>
+                        <div class="spacing-box" style="width: 24px; height: 60px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="component-section" id="buttons">
+                <h2 class="component-title">🔘 Buttons</h2>
+                <p class="component-description">Button component in multiple variants and sizes.</p>
+
+                <div class="component-demo">
+                    <div class="demo-title">Button Variants</div>
+                    <div class="demo-items">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-ghost">Ghost Button</button>
+                        <button class="btn btn-success">Success Button</button>
+                        <button class="btn btn-danger">Danger Button</button>
+                    </div>
+                </div>
+
+                <div class="component-demo">
+                    <div class="demo-title">Button Sizes</div>
+                    <div class="demo-items">
+                        <button class="btn btn-primary btn-sm">Small</button>
+                        <button class="btn btn-primary">Regular</button>
+                        <button class="btn btn-primary btn-lg">Large</button>
+                    </div>
+                </div>
+
+                <div class="component-demo">
+                    <div class="demo-title">Disabled State</div>
+                    <div class="demo-items">
+                        <button class="btn btn-primary" disabled>Disabled Button</button>
+                        <button class="btn btn-secondary" disabled>Disabled Button</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARDS -->
+            <div class="component-section" id="cards">
+                <h2 class="component-title">📇 Cards</h2>
+                <p class="component-description">Flexible card container for organizing content.</p>
+
+                <div class="component-demo">
+                    <div class="demo-title">Card Component</div>
+                    <div class="card" style="max-width: 400px;">
+                        <div class="card-header">
+                            <div class="card-title">Card Title</div>
+                        </div>
+                        <div class="card-content">
+                            <p>This is the card content area with descriptive information.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary btn-sm">Action</button>
+                            <button class="btn btn-secondary btn-sm">Secondary</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-demo">
+                    <div class="demo-title">Stat Card</div>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-4);">
+                        <div class="stat-card">
+                            <div class="stat-label">Total Applications</div>
+                            <div class="stat-value">247</div>
+                            <div class="stat-change positive">↑ 12 this week</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Approved</div>
+                            <div class="stat-value">156</div>
+                            <div class="stat-change positive">↑ 8% increase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BADGES -->
+            <div class="component-section" id="badges">
+                <h2 class="component-title">🏷️ Badges</h2>
+                <p class="component-description">Status and category badges for labeling.</p>
+
+                <div class="component-demo">
+                    <div class="demo-title">Status Badges</div>
+                    <div class="demo-items">
+                        <span class="badge badge-approved">Approved</span>
+                        <span class="badge badge-rejected">Rejected</span>
+                        <span class="badge badge-pending">Pending</span>
+                        <span class="badge badge-review">Under Review</span>
+                        <span class="badge badge-shortlisted">Shortlisted</span>
+                        <span class="badge badge-primary">Primary</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMS -->
+            <div class="component-section" id="forms">
+                <h2 class="component-title">📝 Forms</h2>
+                <p class="component-description">Form elements including inputs, selects, and text areas.</p>
+
+                <div class="component-demo">
+                    <div class="demo-title">Form Elements</div>
+                    <div style="max-width: 400px;">
+                        <div class="form-group">
+                            <label class="label-required">Full Name</label>
+                            <input type="text" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label>Select an option</label>
+                            <select>
+                                <option>Choose...</option>
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea placeholder="Enter your message..."></textarea>
+                        </div>
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLES -->
+            <div class="component-section" id="tables">
+                <h2 class="component-title">📊 Tables</h2>
+                <p class="component-description">Data table component for displaying structured information.</p>
+
+                <div class="component-demo">
+                    <div class="demo-title">Table Component</div>
+                    <div class="table-container" style="max-width: 600px;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Aisha Mohamed</td>
+                                    <td><span class="badge badge-approved">Approved</span></td>
+                                    <td>RM 10,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Kamal Singh</td>
+                                    <td><span class="badge badge-review">Under Review</span></td>
+                                    <td>RM 8,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Nurul Abdullah</td>
+                                    <td><span class="badge badge-pending">Pending</span></td>
+                                    <td>RM 5,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTIFICATIONS -->
+            <div class="component-section" id="notifications">
+                <h2 class="component-title">🔔 Notifications</h2>
+                <p class="component-description">Notification components for system messages.</p>
+
+                <div class="component-demo">
+                    <div class="demo-title">Notification Types</div>
+                    <div style="display: grid; gap: var(--spacing-4);">
+                        <div class="notification notification-success">
+                            <div class="notification-content">
+                                <div class="notification-title">Success</div>
+                                <div class="notification-message">Your action has been completed successfully.</div>
+                            </div>
+                        </div>
+                        <div class="notification notification-error">
+                            <div class="notification-content">
+                                <div class="notification-title">Error</div>
+                                <div class="notification-message">An error occurred while processing your request.</div>
+                            </div>
+                        </div>
+                        <div class="notification notification-warning">
+                            <div class="notification-content">
+                                <div class="notification-title">Warning</div>
+                                <div class="notification-message">Please review the following information.</div>
+                            </div>
+                        </div>
+                        <div class="notification notification-info">
+                            <div class="notification-content">
+                                <div class="notification-title">Information</div>
+                                <div class="notification-message">New update available. Please refresh the page.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="component-section" id="layouts">
+                <h2 class="component-title">📐 Responsive Layouts</h2>
+                <p class="component-description">Grid and layout utilities for responsive design.</p>
+
+                <h3 style="margin-top: var(--spacing-6); margin-bottom: var(--spacing-4); font-weight: 600;">Grid
+                    Layouts</h3>
+                <p class="text-secondary" style="margin-bottom: var(--spacing-4);">The design system includes responsive
+                    grid classes: grid-2, grid-3, grid-4</p>
+
+                <div class="component-demo">
+                    <div class="demo-title">2-Column Grid</div>
+                    <div class="grid grid-2">
+                        <div class="card"
+                            style="min-height: 150px; display: flex; align-items: center; justify-content: center;">
+                            Column 1</div>
+                        <div class="card"
+                            style="min-height: 150px; display: flex; align-items: center; justify-content: center;">
+                            Column 2</div>
+                    </div>
+                </div>
+
+                <p class="text-secondary" style="margin-top: var(--spacing-6); margin-bottom: var(--spacing-4);">All
+                    layouts are fully responsive and adapt to mobile, tablet, and desktop screens.</p>
+            </div>
+
+            <!-- Footer -->
+            <div
+                style="margin-top: var(--spacing-16); padding-top: var(--spacing-8); border-top: 1px solid var(--gray-200); text-align: center; color: var(--text-secondary);">
+                <p>University Scholarship Management System - Design System v1.0</p>
+                <p style="font-size: 0.85rem;">For questions or contributions, contact the design team.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+</body>
+
+</html>

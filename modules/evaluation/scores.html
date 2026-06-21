@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Scores - Evaluation Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+    <style>
+        .form-group {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-3);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+        }
+
+        .score-input {
+            max-width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Evaluation</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="profiles.html">👥 Candidate Profiles</a></li>
+                <li><a href="scores.html" class="active">⭐ Interview Scores</a></li>
+                <li><a href="ranking.html">🏆 Ranking List</a></li>
+                <li><a href="analytics.html">📈 Analytics</a></li>
+                <li><a href="weights.html">⚖️ Modify Weights</a></li>
+                <li><a href="merit.html">✓ Final Merit List</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Record Interview Scores</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Evaluator</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-6);">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Candidate: John David Doe (STU-20231124)</div>
+                        </div>
+                        <div class="card-content">
+                            <div
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); margin-bottom: var(--spacing-6); padding-bottom: var(--spacing-6); border-bottom: 1px solid var(--gray-200);">
+                                <div class="form-group">
+                                    <label>Communication Skills (0-100)</label>
+                                    <input type="number" class="score-input" value="88" min="0" max="100">
+                                </div>
+                                <div class="form-group">
+                                    <label>Leadership Quality (0-100)</label>
+                                    <input type="number" class="score-input" value="87" min="0" max="100">
+                                </div>
+                                <div class="form-group">
+                                    <label>Problem Solving (0-100)</label>
+                                    <input type="number" class="score-input" value="90" min="0" max="100">
+                                </div>
+                                <div class="form-group">
+                                    <label>Motivation & Drive (0-100)</label>
+                                    <input type="number" class="score-input" value="85" min="0" max="100">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Overall Impression & Comments</label>
+                                <textarea
+                                    placeholder="Enter your evaluation comments...">Excellent communication skills and demonstrated strong leadership potential. Well-articulated responses and showed genuine interest in the scholarship program.</textarea>
+                            </div>
+
+                            <div style="display: flex; gap: var(--spacing-4);">
+                                <button class="btn btn-ghost">Cancel</button>
+                                <button class="btn btn-primary">Save Scores</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Score Summary</div>
+                            </div>
+                            <div class="card-content">
+                                <div
+                                    style="margin-bottom: var(--spacing-3); padding: var(--spacing-3); background-color: var(--primary-blue-light); border-radius: var(--radius-md);">
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Average Score</div>
+                                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue);">87.5
+                                    </div>
+                                </div>
+                                <ul style="margin: 0; padding: 0; font-size: 0.9rem; list-style: none;">
+                                    <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-200);">
+                                        Communication: <strong>88</strong></li>
+                                    <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-200);">
+                                        Leadership: <strong>87</strong></li>
+                                    <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-200);">
+                                        Problem Solving: <strong>90</strong></li>
+                                    <li style="padding: var(--spacing-2) 0;">Motivation: <strong>85</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Candidate Info</div>
+                            </div>
+                            <div class="card-content" style="font-size: 0.9rem;">
+                                <p style="margin: 0 0 var(--spacing-2) 0;"><strong>ID:</strong> STU-20231124</p>
+                                <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Program:</strong> Computer Science
+                                </p>
+                                <p style="margin: 0 0 var(--spacing-2) 0;"><strong>CGPA:</strong> 3.85</p>
+                                <p style="margin: 0;"><strong>Interview Date:</strong> 20 Jan 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

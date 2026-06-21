@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Report - Scholarship System</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+    <style>
+        .report-header {
+            background-color: var(--primary-blue-light);
+            border-left: 4px solid var(--primary-blue);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .report-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .report-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-4);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .report-controls {
+            display: flex;
+            gap: var(--spacing-4);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-8);
+        }
+
+        .report-table {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .summary-item {
+            background-color: var(--white);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        .summary-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .summary-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .summary-detail {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-2);
+        }
+
+        .page-break {
+            page-break-after: always;
+            border-top: 2px dashed var(--gray-200);
+            margin: var(--spacing-8) 0;
+            padding-top: var(--spacing-8);
+        }
+
+        @media print {
+            .report-controls {
+                display: none;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .report-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .report-controls {
+                flex-direction: column;
+            }
+
+            .report-controls .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">🎓 Scholarships</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Reporting Module</div>
+                    <a href="scholarships.html" class="nav-item active">
+                        <span>🎯</span> Scholarship Report
+                    </a>
+                    <a href="eligibility.html" class="nav-item">
+                        <span>✓</span> Eligibility Report
+                    </a>
+                    <a href="ranking.html" class="nav-item">
+                        <span>🏆</span> Ranking Report
+                    </a>
+                    <a href="payout.html" class="nav-item">
+                        <span>💰</span> Payout Report
+                    </a>
+                    <a href="archive.html" class="nav-item">
+                        <span>📚</span> Award Archive
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">System</div>
+                    <a href="../../index.html" class="nav-item">
+                        <span>←</span> Back to Main
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <h3 class="text-h5">Scholarship Report</h3>
+                </div>
+                <div class="top-bar-right">
+                    <span>January 2024</span>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Report Controls -->
+                <div class="report-controls">
+                    <input type="date"
+                        style="padding: var(--spacing-3) var(--spacing-4); border: 1px solid var(--gray-300); border-radius: var(--radius-md);">
+                    <input type="date"
+                        style="padding: var(--spacing-3) var(--spacing-4); border: 1px solid var(--gray-300); border-radius: var(--radius-md);">
+                    <button class="btn btn-secondary">Search</button>
+                    <button class="btn btn-secondary">📥 Export PDF</button>
+                    <button class="btn btn-secondary">📊 Export Excel</button>
+                    <button class="btn btn-secondary" onclick="window.print()">🖨️ Print</button>
+                </div>
+
+                <!-- Report Header -->
+                <div class="report-header">
+                    <div class="report-title">📋 Scholarship Management Report</div>
+                    <div class="report-meta">
+                        <div>
+                            <strong>Report Period:</strong> January 1 - January 31, 2024
+                        </div>
+                        <div>
+                            <strong>Generated:</strong> January 31, 2024
+                        </div>
+                        <div>
+                            <strong>Prepared by:</strong> Scholarship Committee
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Statistics -->
+                <div class="summary-stats">
+                    <div class="summary-item">
+                        <div class="summary-label">Total Scholarships</div>
+                        <div class="summary-value">12</div>
+                        <div class="summary-detail">Active programs</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Total Applications</div>
+                        <div class="summary-value">247</div>
+                        <div class="summary-detail">↑ 18% from last month</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Total Awards</div>
+                        <div class="summary-value">156</div>
+                        <div class="summary-detail">63% approval rate</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Total Amount</div>
+                        <div class="summary-value">RM 1.4M</div>
+                        <div class="summary-detail">Awarded this period</div>
+                    </div>
+                </div>
+
+                <!-- Detailed Report Table -->
+                <div class="report-table">
+                    <table style="width: 100%;">
+                        <thead style="background-color: var(--gray-50);">
+                            <tr>
+                                <th>Scholarship Name</th>
+                                <th>Type</th>
+                                <th>Applications</th>
+                                <th>Approved</th>
+                                <th>Rejected</th>
+                                <th>Approval Rate</th>
+                                <th>Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Excellence Scholarship 2024</strong></td>
+                                <td>Merit-Based</td>
+                                <td>82</td>
+                                <td><span class="badge badge-approved">64</span></td>
+                                <td><span class="badge badge-rejected">18</span></td>
+                                <td>78%</td>
+                                <td><strong>RM 640,000</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Merit-Based Award</strong></td>
+                                <td>Merit-Based</td>
+                                <td>95</td>
+                                <td><span class="badge badge-approved">72</span></td>
+                                <td><span class="badge badge-rejected">23</span></td>
+                                <td>76%</td>
+                                <td><strong>RM 576,000</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Department Fund</strong></td>
+                                <td>Faculty Specific</td>
+                                <td>45</td>
+                                <td><span class="badge badge-approved">20</span></td>
+                                <td><span class="badge badge-rejected">25</span></td>
+                                <td>44%</td>
+                                <td><strong>RM 100,000</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Financial Assistance Award</strong></td>
+                                <td>Need-Based</td>
+                                <td>25</td>
+                                <td><span class="badge badge-pending">0</span></td>
+                                <td><span class="badge badge-pending">0</span></td>
+                                <td>0%</td>
+                                <td><strong>RM 0</strong></td>
+                            </tr>
+                            <tr style="background-color: var(--gray-50); font-weight: 700;">
+                                <td colspan="2">TOTAL</td>
+                                <td>247</td>
+                                <td>156</td>
+                                <td>66</td>
+                                <td>63%</td>
+                                <td>RM 1,316,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Page Break -->
+                <div class="page-break"></div>
+
+                <!-- Analysis Section -->
+                <div style="margin-top: var(--spacing-8);">
+                    <h3 class="text-h3">Report Analysis</h3>
+
+                    <div class="card" style="margin-top: var(--spacing-6);">
+                        <div class="card-header">
+                            <div class="card-title">Key Findings</div>
+                        </div>
+                        <div class="card-content">
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: var(--spacing-3) 0; border-bottom: 1px solid var(--gray-100);">
+                                    <strong>✓ High Application Surge:</strong> 247 applications received, representing
+                                    an 18% increase compared to the previous month.
+                                </li>
+                                <li style="padding: var(--spacing-3) 0; border-bottom: 1px solid var(--gray-100);">
+                                    <strong>✓ Strong Approval Rate:</strong> Overall 63% approval rate across all
+                                    scholarships indicates competitive but achievable standards.
+                                </li>
+                                <li style="padding: var(--spacing-3) 0; border-bottom: 1px solid var(--gray-100);">
+                                    <strong>⚠ Variance in Selection Rates:</strong> Department Fund showing lower 44%
+                                    approval rate suggests need for eligibility criteria review.
+                                </li>
+                                <li style="padding: var(--spacing-3) 0; border-bottom: 1px solid var(--gray-100);">
+                                    <strong>✓ Budget Utilization:</strong> RM 1.3M awarded against RM 1.4M allocated
+                                    (94% utilization).
+                                </li>
+                                <li style="padding: var(--spacing-3) 0;">
+                                    <strong>⏳ Outstanding Decisions:</strong> Financial Assistance Award still pending
+                                    review. Expected completion by Feb 15.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-top: var(--spacing-6);">
+                        <div class="card-header">
+                            <div class="card-title">Recommendations</div>
+                        </div>
+                        <div class="card-content">
+                            <ol style="padding-left: var(--spacing-6); color: var(--text-secondary);">
+                                <li style="padding: var(--spacing-2) 0;">Review Department Fund eligibility criteria to
+                                    improve selection rate from 44% to target 60%</li>
+                                <li style="padding: var(--spacing-2) 0;">Implement early processing for Financial
+                                    Assistance Award to meet February deadline</li>
+                                <li style="padding: var(--spacing-2) 0;">Consider increasing total allocation based on
+                                    strong application volume and demand</li>
+                                <li style="padding: var(--spacing-2) 0;">Establish feedback mechanism for rejected
+                                    applicants to improve program perception</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div
+                    style="margin-top: var(--spacing-12); padding-top: var(--spacing-8); border-top: 1px solid var(--gray-200); text-align: center; color: var(--text-secondary); font-size: 0.85rem;">
+                    <p>This report is confidential and intended for authorized university personnel only.</p>
+                    <p>For more details, contact the Scholarship Committee or visit the admin portal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

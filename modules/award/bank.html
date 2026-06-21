@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Verification - Award Management</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Awards</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="payouts.html">💰 Manage Payouts</a></li>
+                <li><a href="bank.html" class="active">🏦 Bank Verification</a></li>
+                <li><a href="letters.html">📄 Award Letters</a></li>
+                <li><a href="eligibility.html">✓ Verify Eligibility</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Bank Account Verification</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Finance Officer</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-6);">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Bank Details - Tan Wei Ming</div>
+                        </div>
+                        <div class="card-content">
+                            <div
+                                style="display: grid; gap: var(--spacing-6); margin-bottom: var(--spacing-6); padding-bottom: var(--spacing-6); border-bottom: 1px solid var(--gray-200);">
+                                <div>
+                                    <label
+                                        style="display: block; font-weight: 600; margin-bottom: var(--spacing-2);">Student
+                                        ID</label>
+                                    <p style="margin: 0;">STU-20231215</p>
+                                </div>
+                                <div>
+                                    <label
+                                        style="display: block; font-weight: 600; margin-bottom: var(--spacing-2);">Student
+                                        Name</label>
+                                    <p style="margin: 0;">Tan Wei Ming</p>
+                                </div>
+                                <div>
+                                    <label
+                                        style="display: block; font-weight: 600; margin-bottom: var(--spacing-2);">Bank
+                                        Name</label>
+                                    <p style="margin: 0;">Maybank (Malayan Banking Berhad)</p>
+                                </div>
+                                <div>
+                                    <label
+                                        style="display: block; font-weight: 600; margin-bottom: var(--spacing-2);">Account
+                                        Number</label>
+                                    <p style="margin: 0;">112-345678-90-1</p>
+                                </div>
+                                <div>
+                                    <label
+                                        style="display: block; font-weight: 600; margin-bottom: var(--spacing-2);">Account
+                                        Holder Name</label>
+                                    <p style="margin: 0;">TAN WEI MING</p>
+                                </div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4);">
+                                <button class="btn btn-secondary">Request Document</button>
+                                <button class="btn btn-success">Verify & Approve</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Verification Status</div>
+                            </div>
+                            <div class="card-content">
+                                <div
+                                    style="margin-bottom: var(--spacing-4); padding: var(--spacing-4); background-color: #FEF3C7; border-radius: var(--radius-md); border-left: 4px solid var(--status-warning);">
+                                    <div style="font-weight: 600; color: var(--status-warning);">Pending Verification
+                                    </div>
+                                    <p style="margin: var(--spacing-1) 0 0 0; font-size: 0.85rem;">Awaiting confirmation
+                                        from bank</p>
+                                </div>
+                                <ul style="margin: 0; padding: 0; font-size: 0.9rem;">
+                                    <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-200);">
+                                        Account verified: <strong>No</strong></li>
+                                    <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-200);">
+                                        Documents: <strong>Pending</strong></li>
+                                    <li style="padding: var(--spacing-2) 0;">Ready for payout: <strong>No</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Award Info</div>
+                            </div>
+                            <div class="card-content" style="font-size: 0.9rem;">
+                                <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Scholarship:</strong> Faculty
+                                    Excellence</p>
+                                <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Amount:</strong> RM 8,000</p>
+                                <p style="margin: 0;"><strong>Expected Date:</strong> 25 Jan 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

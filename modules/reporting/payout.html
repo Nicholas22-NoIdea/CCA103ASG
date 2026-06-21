@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payout Report - Reporting Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Reports</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="scholarships.html">📊 Scholarships</a></li>
+                <li><a href="eligibility.html">✓ Eligibility Report</a></li>
+                <li><a href="ranking.html">🏆 Ranking Report</a></li>
+                <li><a href="payout.html" class="active">💰 Payout Report</a></li>
+                <li><a href="archive.html">📁 Archive</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Payment Summary Report</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Report Admin</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-6);">
+                    <div>
+                        <h3 style="margin: 0 0 var(--spacing-2) 0; font-size: 0.95rem; color: var(--text-secondary);">
+                            Payout Summary 2024</h3>
+                        <p style="margin: 0; font-size: 1.5rem; font-weight: 700;">RM 1,400,000 Total</p>
+                    </div>
+                    <div style="display: flex; gap: var(--spacing-3);">
+                        <button class="btn btn-secondary">Export PDF</button>
+                        <button class="btn btn-secondary">Download CSV</button>
+                    </div>
+                </div>
+
+                <!-- Status Summary -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-success);">RM 912,000</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-warning);">RM 420,000</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-danger);">RM 68,000</div>
+                        <div class="stat-label">Failed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">73.1%</div>
+                        <div class="stat-label">Completion Rate</div>
+                    </div>
+                </div>
+
+                <!-- Status Breakdown -->
+                <div class="card" style="margin-bottom: var(--spacing-6);">
+                    <div class="card-header">
+                        <div class="card-title">Payment Status Breakdown</div>
+                    </div>
+                    <div class="card-content">
+                        <div style="display: grid; gap: var(--spacing-4);">
+                            <div>
+                                <div
+                                    style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                    <span><strong>Completed</strong> - 114 students</span>
+                                    <span style="font-weight: 600;">RM 912,000</span>
+                                </div>
+                                <div
+                                    style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                    <div
+                                        style="width: 65%; height: 100%; background-color: var(--status-success); border-radius: 3px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div
+                                    style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                    <span><strong>Pending Verification</strong> - 42 students</span>
+                                    <span style="font-weight: 600;">RM 420,000</span>
+                                </div>
+                                <div
+                                    style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                    <div
+                                        style="width: 30%; height: 100%; background-color: var(--status-warning); border-radius: 3px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div
+                                    style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                    <span><strong>Failed/Rejected</strong> - 8 students</span>
+                                    <span style="font-weight: 600;">RM 68,000</span>
+                                </div>
+                                <div
+                                    style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                    <div
+                                        style="width: 5%; height: 100%; background-color: var(--status-danger); border-radius: 3px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transaction History -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Recent Transactions</div>
+                    </div>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Student</th>
+                                    <th>Amount</th>
+                                    <th>Scholarship</th>
+                                    <th>Status</th>
+                                    <th>Reference</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>25 Jan 2024</td>
+                                    <td><strong>John David Doe</strong></td>
+                                    <td>RM 15,000</td>
+                                    <td>Excellence</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>TRX-2024-001</td>
+                                </tr>
+                                <tr>
+                                    <td>26 Jan 2024</td>
+                                    <td><strong>Sarah Binti Ahmad</strong></td>
+                                    <td>RM 10,000</td>
+                                    <td>Merit-Based</td>
+                                    <td><span class="badge badge-success">Completed</span></td>
+                                    <td>TRX-2024-002</td>
+                                </tr>
+                                <tr>
+                                    <td>27 Jan 2024</td>
+                                    <td><strong>Tan Wei Ming</strong></td>
+                                    <td>RM 8,000</td>
+                                    <td>Faculty Excellence</td>
+                                    <td><span class="badge badge-warning">Pending</span></td>
+                                    <td>TRX-2024-003</td>
+                                </tr>
+                                <tr>
+                                    <td>27 Jan 2024</td>
+                                    <td><strong>Aisha Mohamed Ali</strong></td>
+                                    <td>RM 10,000</td>
+                                    <td>Merit-Based</td>
+                                    <td><span class="badge badge-danger">Failed</span></td>
+                                    <td>TRX-2024-004</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Reconciliation -->
+                <div class="card" style="margin-top: var(--spacing-6);">
+                    <div class="card-header">
+                        <div class="card-title">Reconciliation</div>
+                    </div>
+                    <div class="card-content" style="font-size: 0.9rem;">
+                        <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Expected Total:</strong> RM 1,400,000</p>
+                        <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Actual Disbursed:</strong> RM 1,236,000</p>
+                        <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Pending:</strong> RM 164,000</p>
+                        <p style="margin: 0; color: var(--status-success); font-weight: 700;"><strong>Status:</strong> ✓
+                            In Progress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

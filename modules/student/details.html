@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Details - Student Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Scholarships</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="search.html">🔍 Search Scholarships</a></li>
+                <li><a href="details.html" class="active">ℹ️ Scholarship Details</a></li>
+                <li><a href="apply.html">✍️ Apply Now</a></li>
+                <li><a href="upload.html">📁 Upload Documents</a></li>
+                <li><a href="status.html">📋 Track Status</a></li>
+                <li><a href="history.html">📜 Application History</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Excellence Scholarship Program</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">John Doe</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container" style="padding: var(--spacing-8);">
+                <!-- Breadcrumb -->
+                <div style="margin-bottom: var(--spacing-6); font-size: 0.9rem;">
+                    <a href="search.html" style="color: var(--primary-blue); text-decoration: none;">Search</a>
+                    <span style="color: var(--text-tertiary);">/ Excellence Scholarship</span>
+                </div>
+
+                <!-- Scholarship Header -->
+                <div class="card" style="margin-bottom: var(--spacing-8);">
+                    <div
+                        style="padding: var(--spacing-8); background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%); color: var(--text-inverse); border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <h2 class="text-h2" style="margin: 0 0 var(--spacing-2) 0; color: var(--text-inverse);">
+                                    Excellence Scholarship Program</h2>
+                                <p style="margin: 0; opacity: 0.9;">Merit-based scholarship for outstanding students</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 2rem; font-weight: 700;">RM 15,000</div>
+                                <p style="margin: var(--spacing-2) 0 0 0; font-size: 0.9rem;">Annual Award</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: var(--spacing-6);">
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                            <div>
+                                <div style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">
+                                    Application Deadline</div>
+                                <p style="margin: var(--spacing-2) 0 0 0; font-weight: 600;">31 December 2024</p>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Award
+                                    Duration</div>
+                                <p style="margin: var(--spacing-2) 0 0 0; font-weight: 600;">1 Year (Renewable)</p>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">
+                                    Available Slots</div>
+                                <p style="margin: var(--spacing-2) 0 0 0; font-weight: 600;">15 Awards</p>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Status
+                                </div>
+                                <p style="margin: var(--spacing-2) 0 0 0;"><span class="badge badge-success">Open</span>
+                                </p>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; padding: var(--spacing-4);">Apply
+                            Now</button>
+                    </div>
+                </div>
+
+                <!-- Overview Section -->
+                <div
+                    style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-6); margin-bottom: var(--spacing-6);">
+                    <!-- Main Content -->
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">About This Scholarship</div>
+                            </div>
+                            <div class="card-content">
+                                <p>The Excellence Scholarship Program is designed to recognize and support academically
+                                    outstanding students who demonstrate exceptional potential and commitment to their
+                                    studies. This merit-based scholarship provides financial support to eligible
+                                    undergraduate and postgraduate students.</p>
+                                <h4 style="margin: var(--spacing-6) 0 var(--spacing-3) 0;">Key Benefits</h4>
+                                <ul style="margin: 0; padding-left: var(--spacing-6);">
+                                    <li>Annual cash award of RM 15,000</li>
+                                    <li>Renewable for up to 4 years (subject to academic performance)</li>
+                                    <li>Mentorship program with senior university officials</li>
+                                    <li>Priority access to internship opportunities</li>
+                                    <li>Recognition in university publications</li>
+                                    <li>Invitation to exclusive networking events</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Eligibility Criteria</div>
+                            </div>
+                            <div class="card-content">
+                                <div style="display: grid; gap: var(--spacing-4);">
+                                    <div
+                                        style="padding: var(--spacing-4); background-color: var(--primary-blue-light); border-left: 4px solid var(--primary-blue); border-radius: var(--radius-md);">
+                                        <strong>Minimum CGPA:</strong> 3.50 or above
+                                    </div>
+                                    <div
+                                        style="padding: var(--spacing-4); background-color: var(--primary-blue-light); border-left: 4px solid var(--primary-blue); border-radius: var(--radius-md);">
+                                        <strong>Academic Status:</strong> Full-time student in good academic standing
+                                    </div>
+                                    <div
+                                        style="padding: var(--spacing-4); background-color: var(--primary-blue-light); border-left: 4px solid var(--primary-blue); border-radius: var(--radius-md);">
+                                        <strong>Citizenship:</strong> Malaysian citizen or permanent resident
+                                    </div>
+                                    <div
+                                        style="padding: var(--spacing-4); background-color: var(--primary-blue-light); border-left: 4px solid var(--primary-blue); border-radius: var(--radius-md);">
+                                        <strong>Program:</strong> Undergraduate or Postgraduate (all faculties)
+                                    </div>
+                                    <div
+                                        style="padding: var(--spacing-4); background-color: var(--primary-blue-light); border-left: 4px solid var(--primary-blue); border-radius: var(--radius-md);">
+                                        <strong>No Pending Dues:</strong> No outstanding fees or library fines
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Required Documents</div>
+                            </div>
+                            <div class="card-content">
+                                <ul style="margin: 0; padding-left: var(--spacing-6);">
+                                    <li>Completed application form</li>
+                                    <li>Official academic transcript (latest semester)</li>
+                                    <li>Copy of national ID or passport</li>
+                                    <li>Letter of recommendation from faculty</li>
+                                    <li>Personal statement (500-750 words)</li>
+                                    <li>Proof of citizenship (birth certificate or PR certificate)</li>
+                                    <li>Bank account details for direct transfer</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Quick Stats</div>
+                            </div>
+                            <div class="card-content">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-3) 0; border-bottom: 1px solid var(--gray-200);">
+                                    <span style="color: var(--text-secondary);">Total Applications</span>
+                                    <strong>247</strong>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-3) 0; border-bottom: 1px solid var(--gray-200);">
+                                    <span style="color: var(--text-secondary);">Approval Rate</span>
+                                    <strong>6.1%</strong>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-3) 0; border-bottom: 1px solid var(--gray-200);">
+                                    <span style="color: var(--text-secondary);">Avg CGPA Winner</span>
+                                    <strong>3.85</strong>
+                                </div>
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; padding: var(--spacing-3) 0;">
+                                    <span style="color: var(--text-secondary);">Award Year</span>
+                                    <strong>2024</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Questions?</div>
+                            </div>
+                            <div class="card-content">
+                                <p style="font-size: 0.9rem; margin-bottom: var(--spacing-4);">Contact the Scholarship
+                                    Office for more information.</p>
+                                <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                                    <p><strong>Email:</strong> scholarships@university.edu.my</p>
+                                    <p><strong>Phone:</strong> +60 3-XXXX-XXXX</p>
+                                    <p><strong>Office:</strong> Admin Building, Level 3</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Your Status</div>
+                            </div>
+                            <div class="card-content">
+                                <div
+                                    style="padding: var(--spacing-4); background-color: var(--status-success-light); border-left: 4px solid var(--status-success); border-radius: var(--radius-md);">
+                                    <div
+                                        style="font-weight: 600; color: var(--status-success); margin-bottom: var(--spacing-2);">
+                                        ✓ You are eligible</div>
+                                    <p style="font-size: 0.85rem; margin: 0; color: var(--text-secondary);">Your CGPA
+                                        meets the minimum requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

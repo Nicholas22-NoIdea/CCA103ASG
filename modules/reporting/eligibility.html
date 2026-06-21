@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligibility Report - Reporting Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Reports</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="scholarships.html">📊 Scholarships</a></li>
+                <li><a href="eligibility.html" class="active">✓ Eligibility Report</a></li>
+                <li><a href="ranking.html">🏆 Ranking Report</a></li>
+                <li><a href="payout.html">💰 Payout Report</a></li>
+                <li><a href="archive.html">📁 Archive</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Eligibility Verification Report</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Report Admin</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: var(--spacing-2); font-size: 0.9rem;">From
+                            Date</label>
+                        <input type="date"
+                            style="width: 100%; padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md);">
+                    </div>
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: var(--spacing-2); font-size: 0.9rem;">To
+                            Date</label>
+                        <input type="date"
+                            style="width: 100%; padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md);">
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: var(--spacing-3); margin-bottom: var(--spacing-6);">
+                    <button class="btn btn-primary">Generate Report</button>
+                    <button class="btn btn-secondary">Export PDF</button>
+                    <button class="btn btn-ghost">Download CSV</button>
+                </div>
+
+                <!-- Stats -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                    <div class="stat-card">
+                        <div class="stat-value">247</div>
+                        <div class="stat-label">Total Candidates</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-success);">234</div>
+                        <div class="stat-label">Eligible</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-danger);">13</div>
+                        <div class="stat-label">Ineligible</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">94.7%</div>
+                        <div class="stat-label">Eligibility Rate</div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Eligibility Details</div>
+                    </div>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Student ID</th>
+                                    <th>CGPA</th>
+                                    <th>Academic Standing</th>
+                                    <th>Enrollment Status</th>
+                                    <th>Financial Status</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>John David Doe</strong></td>
+                                    <td>STU-20231001</td>
+                                    <td>3.85</td>
+                                    <td><span class="badge badge-success">Good</span></td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><span class="badge badge-success">Clear</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sarah Binti Ahmad</strong></td>
+                                    <td>STU-20231002</td>
+                                    <td>3.72</td>
+                                    <td><span class="badge badge-success">Good</span></td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><span class="badge badge-success">Clear</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                </tr>
+                                <tr style="background-color: #FEE2E2;">
+                                    <td><strong>Aisha Mohamed Ali</strong></td>
+                                    <td>STU-20231003</td>
+                                    <td>2.85</td>
+                                    <td><span class="badge badge-danger">Poor</span></td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><span class="badge badge-danger">Dues</span></td>
+                                    <td><span class="badge badge-danger">Ineligible</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tan Wei Ming</strong></td>
+                                    <td>STU-20231004</td>
+                                    <td>3.65</td>
+                                    <td><span class="badge badge-success">Good</span></td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><span class="badge badge-success">Clear</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

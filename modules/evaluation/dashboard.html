@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Dashboard - Scholarship System</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+    <style>
+        .ranking-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .rank-badge {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-inverse);
+            font-weight: 700;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .rank-badge.second {
+            background: linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%);
+        }
+
+        .rank-badge.third {
+            background: linear-gradient(135deg, #CD7F32 0%, #B8860B 100%);
+        }
+
+        .ranking-info {
+            flex: 1;
+        }
+
+        .ranking-name {
+            font-weight: 700;
+            margin-bottom: var(--spacing-1);
+        }
+
+        .ranking-score {
+            display: flex;
+            gap: var(--spacing-6);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .score-item {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .ranking-actions {
+            display: flex;
+            gap: var(--spacing-2);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .metric-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            text-align: center;
+        }
+
+        .metric-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-1);
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-4);
+        }
+
+        .score-item-detail {
+            padding: var(--spacing-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .score-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .score-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        @media (max-width: 1024px) {
+            .score-breakdown {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ranking-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .score-breakdown {
+                grid-template-columns: 1fr;
+            }
+
+            .ranking-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .ranking-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">🎓 Scholarships</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Evaluation Portal</div>
+                    <a href="dashboard.html" class="nav-item active">
+                        <span>📊</span> Dashboard
+                    </a>
+                    <a href="profiles.html" class="nav-item">
+                        <span>👥</span> Candidates
+                    </a>
+                    <a href="scores.html" class="nav-item">
+                        <span>⭐</span> Interview Scores
+                    </a>
+                    <a href="ranking.html" class="nav-item">
+                        <span>🏆</span> Ranking
+                    </a>
+                    <a href="analytics.html" class="nav-item">
+                        <span>📈</span> Analytics
+                    </a>
+                    <a href="weights.html" class="nav-item">
+                        <span>⚖️</span> Weights
+                    </a>
+                    <a href="merit.html" class="nav-item">
+                        <span>📋</span> Final List
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">System</div>
+                    <a href="../../index.html" class="nav-item">
+                        <span>←</span> Back to Main
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <h3 class="text-h5">Evaluation Dashboard</h3>
+                </div>
+                <div class="top-bar-right">
+                    <span><strong>Excellence Scholarship 2024</strong></span>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">👥</div>
+                        <div class="metric-value">64</div>
+                        <div class="metric-label">Total Candidates</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">📞</div>
+                        <div class="metric-value">58</div>
+                        <div class="metric-label">Interviewed</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">⭐</div>
+                        <div class="metric-value">52</div>
+                        <div class="metric-label">Scored</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🏆</div>
+                        <div class="metric-value">15</div>
+                        <div class="metric-label">Awards Available</div>
+                    </div>
+                </div>
+
+                <!-- Top Ranked Candidates -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Top Ranked Candidates</div>
+                    </div>
+                    <div class="card-content">
+                        <!-- Rank 1 -->
+                        <div class="ranking-card">
+                            <div class="rank-badge">1</div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">Aisha Binti Mohamed</div>
+                                <div class="ranking-score">
+                                    <div class="score-item">
+                                        <span>Academic: 95</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>Interview: 92</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>Overall: 93.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ranking-actions">
+                                <button class="btn btn-primary btn-sm">View Profile</button>
+                                <button class="btn btn-secondary btn-sm">Award</button>
+                            </div>
+                        </div>
+
+                        <!-- Rank 2 -->
+                        <div class="ranking-card">
+                            <div class="rank-badge second">2</div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">Kamal Singh</div>
+                                <div class="ranking-score">
+                                    <div class="score-item">
+                                        <span>Academic: 91</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>Interview: 89</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>Overall: 90.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ranking-actions">
+                                <button class="btn btn-primary btn-sm">View Profile</button>
+                                <button class="btn btn-secondary btn-sm">Award</button>
+                            </div>
+                        </div>
+
+                        <!-- Rank 3 -->
+                        <div class="ranking-card">
+                            <div class="rank-badge third">3</div>
+                            <div class="ranking-info">
+                                <div class="ranking-name">Nurul Iman Binti Abdullah</div>
+                                <div class="ranking-score">
+                                    <div class="score-item">
+                                        <span>Academic: 88</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>Interview: 87</span>
+                                    </div>
+                                    <div class="score-item">
+                                        <span>Overall: 87.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ranking-actions">
+                                <button class="btn btn-primary btn-sm">View Profile</button>
+                                <button class="btn btn-secondary btn-sm">Award</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="ranking.html" class="btn btn-ghost">View Complete Ranking →</a>
+                    </div>
+                </div>
+
+                <!-- Ranking Distribution -->
+                <div class="card" style="margin-top: var(--spacing-8);">
+                    <div class="card-header">
+                        <div class="card-title">Score Distribution Analysis</div>
+                    </div>
+                    <div class="card-content">
+                        <div style="margin-bottom: var(--spacing-6);">
+                            <h4 style="margin-bottom: var(--spacing-4); font-weight: 600;">Average Scores by Component
+                            </h4>
+                            <div class="score-breakdown">
+                                <div class="score-item-detail">
+                                    <div class="score-label">Academic Performance</div>
+                                    <div class="score-value">87.3</div>
+                                </div>
+                                <div class="score-item-detail">
+                                    <div class="score-label">Interview Score</div>
+                                    <div class="score-value">85.8</div>
+                                </div>
+                                <div class="score-item-detail">
+                                    <div class="score-label">Overall Average</div>
+                                    <div class="score-value">86.6</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 style="margin-bottom: var(--spacing-4); font-weight: 600;">Score Ranges</h4>
+                            <div style="display: grid; gap: var(--spacing-4);">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>90-100 (Excellent)</span>
+                                    <span class="badge badge-approved">12 candidates</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>80-89 (Very Good)</span>
+                                    <span class="badge badge-review">28 candidates</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>70-79 (Good)</span>
+                                    <span class="badge badge-pending">12 candidates</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div
+                    style="margin-top: var(--spacing-8); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-4);">
+                    <button class="btn btn-primary btn-lg">Generate Final Merit List</button>
+                    <button class="btn btn-secondary btn-lg">Export Rankings</button>
+                    <button class="btn btn-secondary btn-lg">Send Award Notifications</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes & Prototypes - Scholarship System</title>
+    <link rel="stylesheet" href="../assets/css/design-system.css">
+    <style>
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-8);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .wireframe-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .wireframe-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+            transform: translateY(-4px);
+        }
+
+        .wireframe-preview {
+            background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--text-tertiary);
+        }
+
+        .wireframe-info {
+            padding: var(--spacing-6);
+        }
+
+        .wireframe-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .wireframe-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-4);
+            line-height: 1.5;
+        }
+
+        .wireframe-actions {
+            display: flex;
+            gap: var(--spacing-3);
+        }
+
+        .module-section {
+            margin-bottom: var(--spacing-12);
+            scroll-margin-top: 100px;
+        }
+
+        .module-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-2);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+        }
+
+        .module-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-6);
+            max-width: 600px;
+        }
+
+        .flow-diagram {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin: var(--spacing-8) 0;
+            overflow-x: auto;
+        }
+
+        .flow-item {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            margin-right: var(--spacing-4);
+        }
+
+        .flow-box {
+            background-color: var(--primary-blue-light);
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: var(--spacing-4) var(--spacing-6);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .flow-arrow {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            white-space: nowrap;
+        }
+
+        .responsive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-6);
+            margin: var(--spacing-6) 0;
+        }
+
+        .responsive-mockup {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-4);
+            text-align: center;
+        }
+
+        .device-frame {
+            background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .device-content {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+        }
+
+        .device-label {
+            margin-top: var(--spacing-3);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .wireframe-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .responsive-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" style="padding: var(--spacing-12) 0;">
+        <!-- Header -->
+        <div style="margin-bottom: var(--spacing-12);">
+            <h1 class="text-h1">Wireframes & Interactive Prototypes</h1>
+            <p class="text-body text-secondary" style="max-width: 800px;">Complete wireframe documentation and
+                interactive prototypes for all modules of the University Scholarship Management System.</p>
+        </div>
+
+        <!-- Design Approach -->
+        <div class="card" style="margin-bottom: var(--spacing-12);">
+            <div class="card-header">
+                <div class="card-title">Design Approach</div>
+            </div>
+            <div class="card-content">
+                <div
+                    style="display: grid; gap: var(--spacing-4); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-2);">🎯 User-Centric Design</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Wireframes designed around user
+                            tasks and workflows with clear information hierarchy.</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-2);">🔄 Iterative Process</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Multiple design iterations refining
+                            layouts for optimal usability and accessibility.</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-2);">📱 Responsive Design</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">All wireframes designed mobile-first
+                            with responsive breakpoints for all devices.</p>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: var(--spacing-2);">🎨 Design System</div>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Consistent use of component library,
+                            colors, typography, and spacing scale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 1: STUDENT PORTAL -->
+        <div class="module-section" id="student-portal">
+            <div class="module-heading">👨‍🎓 Module 1: Student Portal</div>
+            <p class="module-description">Wireframes for student-facing screens including dashboard, scholarship search,
+                applications, and status tracking.</p>
+
+            <div class="wireframe-grid">
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📊</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Student Dashboard</div>
+                        <p class="wireframe-description">Overview of active applications, quick actions,
+                            recommendations, and notifications.</p>
+                        <div class="wireframe-actions">
+                            <a href="../modules/student/dashboard.html" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">🔍</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Search Scholarships</div>
+                        <p class="wireframe-description">Searchable scholarship directory with filters, cards, and
+                            detailed information.</p>
+                        <div class="wireframe-actions">
+                            <a href="../modules/student/search.html" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📋</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Application Status</div>
+                        <p class="wireframe-description">Timeline view of application progress with status indicators
+                            and next steps.</p>
+                        <div class="wireframe-actions">
+                            <a href="../modules/student/status.html" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">✍️</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Application Wizard</div>
+                        <p class="wireframe-description">Multi-step form with progress indicator for submitting
+                            scholarship applications.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📁</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Upload Documents</div>
+                        <p class="wireframe-description">Drag-and-drop file upload with preview and progress tracking.
+                        </p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📜</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Application History</div>
+                        <p class="wireframe-description">List of previous applications with status history and download
+                            options.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-diagram">
+                <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-4); align-items: center;">
+                    <div class="flow-box">Login</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Dashboard</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Search</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Apply</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Upload</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Submit</div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-box">Track</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 2: ADMIN PORTAL -->
+        <div class="module-section" id="admin-portal">
+            <div class="module-heading">⚙️ Module 2: Admin & Eligibility</div>
+            <p class="module-description">Administrative screens for managing scholarships, eligibility rules, document
+                verification, and application reviews.</p>
+
+            <div class="wireframe-grid">
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📊</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Admin Dashboard</div>
+                        <p class="wireframe-description">KPI cards, scholarship statistics, and recent activities
+                            overview.</p>
+                        <div class="wireframe-actions">
+                            <a href="../modules/admin/dashboard.html" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">🎯</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Manage Scholarships</div>
+                        <p class="wireframe-description">Create, edit, and manage scholarship programs with quotas and
+                            deadlines.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">⚙️</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Configure Rules</div>
+                        <p class="wireframe-description">Define eligibility criteria, CGPA minimums, and weightage
+                            parameters.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">🔍</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Eligibility Screening</div>
+                        <p class="wireframe-description">Automated eligibility check with pass/fail indicators and
+                            filtering.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">✓</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Document Verification</div>
+                        <p class="wireframe-description">Document review interface with preview panel and verification
+                            checklist.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📋</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Review Applications</div>
+                        <p class="wireframe-description">Detailed application review with eligibility and document
+                            verification results.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 3: EVALUATION -->
+        <div class="module-section" id="evaluation">
+            <div class="module-heading">⭐ Module 3: Evaluation & Ranking</div>
+            <p class="module-description">Interview evaluation and merit-based ranking screens for scholarship award
+                selection.</p>
+
+            <div class="wireframe-grid">
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📊</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Evaluation Dashboard</div>
+                        <p class="wireframe-description">Interview progress, top candidates, and score distribution
+                            analysis.</p>
+                        <div class="wireframe-actions">
+                            <a href="../modules/evaluation/dashboard.html" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">👥</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Candidate Profiles</div>
+                        <p class="wireframe-description">Comprehensive student profile with academic records and
+                            documents.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">⭐</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Interview Scores</div>
+                        <p class="wireframe-description">Scoring form for communication, leadership, motivation, and
+                            potential.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">🏆</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Ranking List</div>
+                        <p class="wireframe-description">Merit-based ranking with weighted scores and tier assignment.
+                        </p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📈</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Analytics</div>
+                        <p class="wireframe-description">Ranking distribution charts and allocation recommendations.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">⚖️</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Modify Weights</div>
+                        <p class="wireframe-description">Adjust academic, interview, and financial need weights with
+                            real-time preview.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 4: AWARD MANAGEMENT -->
+        <div class="module-section" id="award">
+            <div class="module-heading">🏆 Module 4: Award Management</div>
+            <p class="module-description">Award letter generation, payout processing, and ongoing eligibility
+                verification.</p>
+
+            <div class="wireframe-grid">
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📊</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Award Dashboard</div>
+                        <p class="wireframe-description">Award status overview, processing timeline, and pending
+                            payouts.</p>
+                        <div class="wireframe-actions">
+                            <a href="../modules/award/dashboard.html" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">💰</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Manage Payouts</div>
+                        <p class="wireframe-description">Payout status tracking with batch processing capabilities.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">🏦</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Bank Verification</div>
+                        <p class="wireframe-description">Student bank account validation and verification workflow.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📄</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Award Letters</div>
+                        <p class="wireframe-description">Generate official award letters in PDF format for distribution.
+                        </p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">✓</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Verify Eligibility</div>
+                        <p class="wireframe-description">Check ongoing CGPA, enrollment, and financial status of
+                            awardees.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODULE 5: REPORTING -->
+        <div class="module-section" id="reporting">
+            <div class="module-heading">📊 Module 5: Reporting</div>
+            <p class="module-description">Professional reports with export capabilities for scholarships, eligibility,
+                rankings, and payouts.</p>
+
+            <div class="wireframe-grid">
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">🎯</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Scholarship Report</div>
+                        <p class="wireframe-description">Comprehensive scholarship performance and statistics report.
+                        </p>
+                        <div class="wireframe-actions">
+                            <a href="../modules/reporting/scholarships.html" class="btn btn-primary btn-sm">View
+                                Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">✓</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Eligibility Report</div>
+                        <p class="wireframe-description">Eligibility verification results and screening analytics.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">🏆</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Ranking Report</div>
+                        <p class="wireframe-description">Final merit list with ranking details and award assignments.
+                        </p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">💰</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Payout Report</div>
+                        <p class="wireframe-description">Payment summary and transaction history.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wireframe-card">
+                    <div class="wireframe-preview">📚</div>
+                    <div class="wireframe-info">
+                        <div class="wireframe-title">Award Archive</div>
+                        <p class="wireframe-description">Historical records and award letter archive.</p>
+                        <div class="wireframe-actions">
+                            <a href="#" class="btn btn-primary btn-sm">View Live</a>
+                            <a href="#" class="btn btn-secondary btn-sm">Wireframe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Responsive Design Section -->
+        <div class="module-section" id="responsive">
+            <div class="module-heading">📱 Responsive Design</div>
+            <p class="module-description">All screens are designed with mobile-first approach and adapt to different
+                screen sizes.</p>
+
+            <div class="responsive-grid">
+                <div class="responsive-mockup">
+                    <div class="device-frame">
+                        <div class="device-content">
+                            <span>📱</span>
+                        </div>
+                    </div>
+                    <div class="device-label">Mobile (375px)</div>
+                </div>
+
+                <div class="responsive-mockup">
+                    <div class="device-frame">
+                        <div class="device-content">
+                            <span>📱</span>
+                        </div>
+                    </div>
+                    <div class="device-label">Tablet (768px)</div>
+                </div>
+
+                <div class="responsive-mockup">
+                    <div class="device-frame">
+                        <div class="device-content">
+                            <span>🖥️</span>
+                        </div>
+                    </div>
+                    <div class="device-label">Desktop (1024px+)</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <h4 style="margin-bottom: var(--spacing-4); font-weight: 600;">Responsive Breakpoints</h4>
+                    <ul style="list-style: none; padding: 0; display: grid; gap: var(--spacing-3);">
+                        <li><strong>Mobile:</strong> 480px and below - Single column layout, full-width components</li>
+                        <li><strong>Tablet:</strong> 481px - 1024px - Two-column grid, optimized touch targets</li>
+                        <li><strong>Desktop:</strong> 1025px and above - Full multi-column layouts, sidebar navigation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+            style="text-align: center; padding: var(--spacing-12) 0; color: var(--text-secondary); border-top: 1px solid var(--gray-200); margin-top: var(--spacing-12);">
+            <p>University Scholarship Management System - Wireframes & Prototypes</p>
+            <p style="font-size: 0.85rem;">All screens designed with responsive principles and modern design practices.
+            </p>
+            <p style="font-size: 0.8rem; margin-top: var(--spacing-4);"><a href="../index.html"
+                    style="color: var(--primary-blue); text-decoration: none;">← Back to Main</a></p>
+        </div>
+    </div>
+
+    <script src="../assets/js/components.js"></script>
+</body>
+
+</html>

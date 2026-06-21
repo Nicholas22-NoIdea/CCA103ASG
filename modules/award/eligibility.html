@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Eligibility - Award Management</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Awards</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="payouts.html">💰 Manage Payouts</a></li>
+                <li><a href="bank.html">🏦 Bank Verification</a></li>
+                <li><a href="letters.html">📄 Award Letters</a></li>
+                <li><a href="eligibility.html" class="active">✓ Verify Eligibility</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Ongoing Eligibility Verification</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Finance Officer</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-4); margin-bottom: var(--spacing-8);">
+                    <div class="stat-card">
+                        <div class="stat-value">156</div>
+                        <div class="stat-label">Active Awardees</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-success);">150</div>
+                        <div class="stat-label">Eligible</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-warning);">4</div>
+                        <div class="stat-label">At Risk</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-danger);">2</div>
+                        <div class="stat-label">Ineligible</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>Scholarship</th>
+                                    <th>CGPA Status</th>
+                                    <th>Enrollment</th>
+                                    <th>Academic Standing</th>
+                                    <th>Overall Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>John David Doe</strong></td>
+                                    <td>Excellence</td>
+                                    <td><span class="badge badge-success">3.85 ✓</span></td>
+                                    <td><span class="badge badge-success">Enrolled</span></td>
+                                    <td><span class="badge badge-success">Good</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue);">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sarah Binti Ahmad</strong></td>
+                                    <td>Merit-Based</td>
+                                    <td><span class="badge badge-success">3.72 ✓</span></td>
+                                    <td><span class="badge badge-success">Enrolled</span></td>
+                                    <td><span class="badge badge-success">Good</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue);">View</a></td>
+                                </tr>
+                                <tr style="background-color: #FEF3C7;">
+                                    <td><strong>Tan Wei Ming</strong></td>
+                                    <td>Faculty Excellence</td>
+                                    <td><span class="badge badge-warning">3.15 ⚠</span></td>
+                                    <td><span class="badge badge-success">Enrolled</span></td>
+                                    <td><span class="badge badge-warning">Probation</span></td>
+                                    <td><span class="badge badge-warning">At Risk</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--status-warning);">Monitor</a></td>
+                                </tr>
+                                <tr style="background-color: #FEE2E2;">
+                                    <td><strong>Aisha Mohamed Ali</strong></td>
+                                    <td>Merit-Based</td>
+                                    <td><span class="badge badge-danger">2.98 ✗</span></td>
+                                    <td><span class="badge badge-danger">Withdrawn</span></td>
+                                    <td><span class="badge badge-danger">Poor</span></td>
+                                    <td><span class="badge badge-danger">Ineligible</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--status-danger);">Review</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-6); margin-top: var(--spacing-6);">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Eligibility Criteria</div>
+                        </div>
+                        <div class="card-content" style="font-size: 0.9rem;">
+                            <ul style="margin: 0; padding: 0;">
+                                <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-200);">
+                                    Minimum CGPA: 3.00</li>
+                                <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-200);">Must
+                                    be enrolled fulltime</li>
+                                <li style="padding: var(--spacing-2) 0; border-bottom: 1px solid var(--gray-200);">Good
+                                    academic standing</li>
+                                <li style="padding: var(--spacing-2) 0;">No outstanding dues</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Verification Period</div>
+                        </div>
+                        <div class="card-content" style="font-size: 0.9rem;">
+                            <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Last Verification:</strong> 20 January
+                                2024</p>
+                            <p style="margin: 0 0 var(--spacing-2) 0;"><strong>Next Verification:</strong> 20 April 2024
+                            </p>
+                            <p style="margin: 0;"><strong>Frequency:</strong> Every semester</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

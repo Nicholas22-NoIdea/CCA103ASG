@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Applications - Admin Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Admin Portal</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="scholarships.html">🎯 Manage Scholarships</a></li>
+                <li><a href="rules.html">⚙️ Configure Rules</a></li>
+                <li><a href="screening.html">🔍 Eligibility Screening</a></li>
+                <li><a href="verification.html">✓ Document Verification</a></li>
+                <li><a href="review.html" class="active">📋 Review Applications</a></li>
+                <li><a href="allocation.html">🏆 Finalize Awards</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Review Verified Applications</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Admin User</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-4); margin-bottom: var(--spacing-8);">
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-warning);">234</div>
+                        <div class="stat-label">Ready for Review</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-success);">156</div>
+                        <div class="stat-label">Approved</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-danger);">37</div>
+                        <div class="stat-label">Rejected</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--text-secondary);">41</div>
+                        <div class="stat-label">Under Review</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>Scholarship</th>
+                                    <th>CGPA</th>
+                                    <th>Documents</th>
+                                    <th>Eligibility</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>John David Doe</strong></td>
+                                    <td>Excellence Scholarship</td>
+                                    <td>3.85</td>
+                                    <td><span class="badge badge-success">✓ Complete</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td><span class="badge badge-warning">Under Review</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue); text-decoration: none;">Review</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sarah Binti Ahmad</strong></td>
+                                    <td>Merit-Based Award</td>
+                                    <td>3.72</td>
+                                    <td><span class="badge badge-success">✓ Complete</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td><span class="badge badge-success">Approved</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue); text-decoration: none;">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tan Wei Ming</strong></td>
+                                    <td>Excellence Scholarship</td>
+                                    <td>3.65</td>
+                                    <td><span class="badge badge-success">✓ Complete</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td><span class="badge badge-success">Approved</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue); text-decoration: none;">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Fatima Hassan Mohamed</strong></td>
+                                    <td>Faculty Excellence</td>
+                                    <td>3.91</td>
+                                    <td><span class="badge badge-success">✓ Complete</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td><span class="badge badge-danger">Rejected</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue); text-decoration: none;">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Priya Sharma</strong></td>
+                                    <td>International Excellence</td>
+                                    <td>3.78</td>
+                                    <td><span class="badge badge-success">✓ Complete</span></td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td><span class="badge badge-warning">Under Review</span></td>
+                                    <td style="font-size: 0.85rem;"><a href="#"
+                                            style="color: var(--primary-blue); text-decoration: none;">Review</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

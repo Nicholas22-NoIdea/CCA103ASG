@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Documents - Student Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+    <style>
+        .upload-area {
+            border: 2px dashed var(--primary-blue);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-12);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            background-color: var(--primary-blue-light);
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary-blue-dark);
+            background-color: var(--gray-50);
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-3);
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-3);
+            flex: 1;
+        }
+
+        .file-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Scholarships</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="search.html">🔍 Search Scholarships</a></li>
+                <li><a href="details.html">ℹ️ Scholarship Details</a></li>
+                <li><a href="apply.html">✍️ Apply Now</a></li>
+                <li><a href="upload.html" class="active">📁 Upload Documents</a></li>
+                <li><a href="status.html">📋 Track Status</a></li>
+                <li><a href="history.html">📜 Application History</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Upload Supporting Documents</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">John Doe</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container" style="padding: var(--spacing-8);">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-6);">
+                    <!-- Main Content -->
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Required Documents</div>
+                            </div>
+                            <div class="card-content">
+                                <div style="display: grid; gap: var(--spacing-4);">
+                                    <!-- Academic Transcript -->
+                                    <div
+                                        style="padding: var(--spacing-4); border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-4);">
+                                            <div>
+                                                <div style="font-weight: 600; margin-bottom: var(--spacing-1);">Academic
+                                                    Transcript</div>
+                                                <div style="font-size: 0.85rem; color: var(--text-secondary);">Official
+                                                    transcript from latest semester (PDF)</div>
+                                            </div>
+                                            <span class="badge badge-success">✓ Uploaded</span>
+                                        </div>
+                                        <div class="file-item">
+                                            <div class="file-info">
+                                                <span class="file-icon">📄</span>
+                                                <div>
+                                                    <div style="font-weight: 600; font-size: 0.9rem;">
+                                                        Academic_Transcript_2024.pdf</div>
+                                                    <div style="font-size: 0.85rem; color: var(--text-secondary);">245
+                                                        KB • Uploaded 2 hours ago</div>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-ghost btn-sm">Replace</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- ID Document -->
+                                    <div
+                                        style="padding: var(--spacing-4); border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-4);">
+                                            <div>
+                                                <div style="font-weight: 600; margin-bottom: var(--spacing-1);">National
+                                                    ID / Passport</div>
+                                                <div style="font-size: 0.85rem; color: var(--text-secondary);">Copy of
+                                                    front and back (PDF or JPG)</div>
+                                            </div>
+                                            <span class="badge badge-success">✓ Uploaded</span>
+                                        </div>
+                                        <div class="file-item">
+                                            <div class="file-info">
+                                                <span class="file-icon">📷</span>
+                                                <div>
+                                                    <div style="font-weight: 600; font-size: 0.9rem;">
+                                                        MyKad_Front_and_Back.pdf</div>
+                                                    <div style="font-size: 0.85rem; color: var(--text-secondary);">385
+                                                        KB • Uploaded 1 hour ago</div>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-ghost btn-sm">Replace</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Personal Statement -->
+                                    <div
+                                        style="padding: var(--spacing-4); border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-4);">
+                                            <div>
+                                                <div style="font-weight: 600; margin-bottom: var(--spacing-1);">Personal
+                                                    Statement</div>
+                                                <div style="font-size: 0.85rem; color: var(--text-secondary);">500-750
+                                                    words (PDF or Word document)</div>
+                                            </div>
+                                            <span class="badge badge-warning">◐ Pending</span>
+                                        </div>
+                                        <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                                            <div style="font-size: 2rem; margin-bottom: var(--spacing-3);">📎</div>
+                                            <div style="font-weight: 600; margin-bottom: var(--spacing-2);">Click to
+                                                upload or drag and drop</div>
+                                            <div style="font-size: 0.9rem; color: var(--text-secondary);">PDF or DOCX
+                                                (Max 5MB)</div>
+                                        </div>
+                                        <input type="file" id="fileInput" style="display: none;">
+                                    </div>
+
+                                    <!-- Letter of Recommendation -->
+                                    <div
+                                        style="padding: var(--spacing-4); border: 1px solid var(--gray-200); border-radius: var(--radius-md);">
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-4);">
+                                            <div>
+                                                <div style="font-weight: 600; margin-bottom: var(--spacing-1);">Letter
+                                                    of Recommendation</div>
+                                                <div style="font-size: 0.85rem; color: var(--text-secondary);">From
+                                                    faculty member (PDF)</div>
+                                            </div>
+                                            <span class="badge badge-warning">◐ Pending</span>
+                                        </div>
+                                        <div class="upload-area">
+                                            <div style="font-size: 2rem; margin-bottom: var(--spacing-3);">📎</div>
+                                            <div style="font-weight: 600; margin-bottom: var(--spacing-2);">Click to
+                                                upload or drag and drop</div>
+                                            <div style="font-size: 0.9rem; color: var(--text-secondary);">PDF only (Max
+                                                5MB)</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div
+                                    style="display: flex; gap: var(--spacing-4); margin-top: var(--spacing-8); padding-top: var(--spacing-6); border-top: 1px solid var(--gray-200);">
+                                    <button class="btn btn-ghost">← Back to Application</button>
+                                    <button class="btn btn-primary" style="flex: 1;">Continue to Review</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Upload Progress</div>
+                            </div>
+                            <div class="card-content">
+                                <div style="margin-bottom: var(--spacing-4);">
+                                    <div
+                                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-2);">
+                                        <span style="font-weight: 600;">Overall Progress</span>
+                                        <span style="color: var(--text-secondary); font-weight: 600;">2 of 4</span>
+                                    </div>
+                                    <div
+                                        style="width: 100%; height: 8px; background-color: var(--gray-200); border-radius: 4px;">
+                                        <div
+                                            style="width: 50%; height: 100%; background-color: var(--status-success); border-radius: 4px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                                    <p style="margin: 0; margin-bottom: var(--spacing-2);"><span
+                                            style="color: var(--status-success);">✓</span> 2 documents uploaded</p>
+                                    <p style="margin: 0; margin-bottom: var(--spacing-2);"><span
+                                            style="color: var(--status-pending);">◐</span> 2 documents pending</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Upload Guidelines</div>
+                            </div>
+                            <div class="card-content" style="font-size: 0.85rem;">
+                                <ul style="margin: 0; padding-left: var(--spacing-6);">
+                                    <li>Max file size: 5MB per document</li>
+                                    <li>Accepted formats: PDF, JPG, PNG, DOCX</li>
+                                    <li>Clear, legible copies only</li>
+                                    <li>All documents in English</li>
+                                    <li>Completed upload required to continue</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking Report - Reporting Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Reports</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="scholarships.html">📊 Scholarships</a></li>
+                <li><a href="eligibility.html">✓ Eligibility Report</a></li>
+                <li><a href="ranking.html" class="active">🏆 Ranking Report</a></li>
+                <li><a href="payout.html">💰 Payout Report</a></li>
+                <li><a href="archive.html">📁 Archive</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Final Merit List Report</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Report Admin</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-6);">
+                    <div>
+                        <h3 style="margin: 0 0 var(--spacing-2) 0; font-size: 0.95rem; color: var(--text-secondary);">
+                            Merit List Report</h3>
+                        <p style="margin: 0; font-size: 1.5rem; font-weight: 700;">156 Selected Recipients</p>
+                    </div>
+                    <div style="display: flex; gap: var(--spacing-3);">
+                        <button class="btn btn-secondary">Export PDF</button>
+                        <button class="btn btn-secondary">Download CSV</button>
+                        <button class="btn btn-primary">Print</button>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                    <div class="stat-card">
+                        <div class="stat-value">156</div>
+                        <div class="stat-label">Total Awards</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">47</div>
+                        <div class="stat-label">Excellence Tier</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">68</div>
+                        <div class="stat-label">Merit Tier</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">41</div>
+                        <div class="stat-label">Faculty Tier</div>
+                    </div>
+                </div>
+
+                <!-- Tier Distribution -->
+                <div class="card" style="margin-bottom: var(--spacing-6);">
+                    <div class="card-header">
+                        <div class="card-title">Award Distribution by Tier</div>
+                    </div>
+                    <div class="card-content">
+                        <div style="display: grid; gap: var(--spacing-4);">
+                            <div>
+                                <div
+                                    style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                    <span><strong>Excellence (Tier 1)</strong> - RM 15,000</span>
+                                    <span style="font-weight: 600;">47 awards</span>
+                                </div>
+                                <div
+                                    style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                    <div
+                                        style="width: 30%; height: 100%; background-color: var(--status-success); border-radius: 3px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div
+                                    style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                    <span><strong>Merit-Based (Tier 2)</strong> - RM 10,000</span>
+                                    <span style="font-weight: 600;">68 awards</span>
+                                </div>
+                                <div
+                                    style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                    <div
+                                        style="width: 44%; height: 100%; background-color: var(--primary-blue); border-radius: 3px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div
+                                    style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                    <span><strong>Faculty Excellence (Tier 3)</strong> - RM 8,000</span>
+                                    <span style="font-weight: 600;">41 awards</span>
+                                </div>
+                                <div
+                                    style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                    <div
+                                        style="width: 26%; height: 100%; background-color: var(--status-warning); border-radius: 3px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Recipients -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Top 10 Recipients</div>
+                    </div>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">Rank</th>
+                                    <th>Name</th>
+                                    <th>Weighted Score</th>
+                                    <th>Program</th>
+                                    <th>Scholarship Tier</th>
+                                    <th>Award Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background-color: #FEF3C7;">
+                                    <td style="font-weight: 700; text-align: center;">1</td>
+                                    <td><strong>John David Doe</strong></td>
+                                    <td>87.5</td>
+                                    <td>Computer Science</td>
+                                    <td><span class="badge badge-success">Excellence</span></td>
+                                    <td style="font-weight: 700;">RM 15,000</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700; text-align: center;">2</td>
+                                    <td><strong>Sarah Binti Ahmad</strong></td>
+                                    <td>85.2</td>
+                                    <td>Engineering</td>
+                                    <td><span class="badge"
+                                            style="background-color: #E5E7EB; color: #374151;">Merit</span></td>
+                                    <td style="font-weight: 700;">RM 10,000</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700; text-align: center;">3</td>
+                                    <td><strong>Tan Wei Ming</strong></td>
+                                    <td>82.8</td>
+                                    <td>Business</td>
+                                    <td><span class="badge"
+                                            style="background-color: #FED7AA; color: #B45309;">Faculty</span></td>
+                                    <td style="font-weight: 700;">RM 8,000</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700; text-align: center;">4</td>
+                                    <td><strong>Aisha Mohamed Ali</strong></td>
+                                    <td>84.5</td>
+                                    <td>Medicine</td>
+                                    <td><span class="badge"
+                                            style="background-color: #E5E7EB; color: #374151;">Merit</span></td>
+                                    <td style="font-weight: 700;">RM 10,000</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 700; text-align: center;">5</td>
+                                    <td><strong>Priya Sharma</strong></td>
+                                    <td>83.1</td>
+                                    <td>Law</td>
+                                    <td><span class="badge"
+                                            style="background-color: #E5E7EB; color: #374151;">Merit</span></td>
+                                    <td style="font-weight: 700;">RM 10,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

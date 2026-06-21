@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Profiles - Evaluation Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Evaluation</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="profiles.html" class="active">👥 Candidate Profiles</a></li>
+                <li><a href="scores.html">⭐ Interview Scores</a></li>
+                <li><a href="ranking.html">🏆 Ranking List</a></li>
+                <li><a href="analytics.html">📈 Analytics</a></li>
+                <li><a href="weights.html">⚖️ Modify Weights</a></li>
+                <li><a href="merit.html">✓ Final Merit List</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Candidate Profiles</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Evaluator</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div style="display: flex; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                    <input type="text" placeholder="Search candidates..."
+                        style="flex: 1; padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md);">
+                    <select
+                        style="padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md); min-width: 120px;">
+                        <option>All Status</option>
+                        <option>Eligible</option>
+                        <option>Shortlisted</option>
+                        <option>Interviewed</option>
+                    </select>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--spacing-6);">
+                    <!-- Candidate Card 1 -->
+                    <div class="card">
+                        <div
+                            style="padding: var(--spacing-6); background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%); color: var(--text-inverse); border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                            <div style="font-size: 2rem; margin-bottom: var(--spacing-2);">👨‍🎓</div>
+                            <h3 style="margin: 0; font-size: 1.1rem;">John David Doe</h3>
+                            <p style="margin: var(--spacing-1) 0 0 0; opacity: 0.9; font-size: 0.9rem;">ID: STU-20231124
+                            </p>
+                        </div>
+                        <div style="padding: var(--spacing-6);">
+                            <div
+                                style="margin-bottom: var(--spacing-4); padding: var(--spacing-3); background-color: var(--primary-blue-light); border-radius: var(--radius-md);">
+                                <div
+                                    style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: var(--spacing-1);">
+                                    Overall Score</div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue);">87.5/100
+                                </div>
+                            </div>
+                            <div
+                                style="display: grid; gap: var(--spacing-3); margin-bottom: var(--spacing-4); font-size: 0.9rem;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Academic Score</span>
+                                    <strong>88.0</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Interview Score</span>
+                                    <strong>87.0</strong>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3);">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                                <button class="btn btn-secondary btn-sm">Documents</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Candidate Card 2 -->
+                    <div class="card">
+                        <div
+                            style="padding: var(--spacing-6); background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%); color: var(--text-inverse); border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                            <div style="font-size: 2rem; margin-bottom: var(--spacing-2);">👩‍🎓</div>
+                            <h3 style="margin: 0; font-size: 1.1rem;">Sarah Binti Ahmad</h3>
+                            <p style="margin: var(--spacing-1) 0 0 0; opacity: 0.9; font-size: 0.9rem;">ID: STU-20231205
+                            </p>
+                        </div>
+                        <div style="padding: var(--spacing-6);">
+                            <div
+                                style="margin-bottom: var(--spacing-4); padding: var(--spacing-3); background-color: #EDE9FE; border-radius: var(--radius-md);">
+                                <div style="font-size: 0.85rem; color: #6D28D9; margin-bottom: var(--spacing-1);">
+                                    Overall Score</div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #8B5CF6;">85.2/100</div>
+                            </div>
+                            <div
+                                style="display: grid; gap: var(--spacing-3); margin-bottom: var(--spacing-4); font-size: 0.9rem;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Academic Score</span>
+                                    <strong>86.0</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Interview Score</span>
+                                    <strong>84.4</strong>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3);">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                                <button class="btn btn-secondary btn-sm">Documents</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Candidate Card 3 -->
+                    <div class="card">
+                        <div
+                            style="padding: var(--spacing-6); background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: var(--text-inverse); border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+                            <div style="font-size: 2rem; margin-bottom: var(--spacing-2);">👨‍🎓</div>
+                            <h3 style="margin: 0; font-size: 1.1rem;">Tan Wei Ming</h3>
+                            <p style="margin: var(--spacing-1) 0 0 0; opacity: 0.9; font-size: 0.9rem;">ID: STU-20231215
+                            </p>
+                        </div>
+                        <div style="padding: var(--spacing-6);">
+                            <div
+                                style="margin-bottom: var(--spacing-4); padding: var(--spacing-3); background-color: #FEF3C7; border-radius: var(--radius-md);">
+                                <div style="font-size: 0.85rem; color: #D97706; margin-bottom: var(--spacing-1);">
+                                    Overall Score</div>
+                                <div style="font-size: 1.5rem; font-weight: 700; color: #F59E0B;">82.8/100</div>
+                            </div>
+                            <div
+                                style="display: grid; gap: var(--spacing-3); margin-bottom: var(--spacing-4); font-size: 0.9rem;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Academic Score</span>
+                                    <strong>84.0</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Interview Score</span>
+                                    <strong>81.6</strong>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3);">
+                                <button class="btn btn-primary btn-sm">View Details</button>
+                                <button class="btn btn-secondary btn-sm">Documents</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

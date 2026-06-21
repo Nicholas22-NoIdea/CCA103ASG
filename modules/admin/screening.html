@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligibility Screening - Admin Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Admin Portal</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="scholarships.html">🎯 Manage Scholarships</a></li>
+                <li><a href="rules.html">⚙️ Configure Rules</a></li>
+                <li><a href="screening.html" class="active">🔍 Eligibility Screening</a></li>
+                <li><a href="verification.html">✓ Document Verification</a></li>
+                <li><a href="review.html">📋 Review Applications</a></li>
+                <li><a href="allocation.html">🏆 Finalize Awards</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Eligibility Screening Results</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Admin User</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container" style="padding: var(--spacing-8);">
+                <!-- Status Summary -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-4); margin-bottom: var(--spacing-8);">
+                    <div class="stat-card">
+                        <div class="stat-value">247</div>
+                        <div class="stat-label">Total Applications</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-success);">234</div>
+                        <div class="stat-label">Eligible</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-danger);">13</div>
+                        <div class="stat-label">Ineligible</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="color: var(--status-warning);">0</div>
+                        <div class="stat-label">Pending Review</div>
+                    </div>
+                </div>
+
+                <!-- Filter & Action Bar -->
+                <div
+                    style="display: flex; justify-content: space-between; gap: var(--spacing-4); margin-bottom: var(--spacing-6);">
+                    <div style="display: flex; gap: var(--spacing-4); flex: 1;">
+                        <input type="text" placeholder="Search applications..."
+                            style="flex: 1; padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md);">
+                        <select
+                            style="padding: var(--spacing-3); border: 1px solid var(--gray-300); border-radius: var(--radius-md); min-width: 120px;">
+                            <option>All Results</option>
+                            <option>Eligible</option>
+                            <option>Ineligible</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary">Run Screening</button>
+                </div>
+
+                <!-- Results Table -->
+                <div class="card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Student Name</th>
+                                    <th>Scholarship</th>
+                                    <th>CGPA</th>
+                                    <th>Attendance</th>
+                                    <th>Citizenship</th>
+                                    <th>Result</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>John David Doe</strong></td>
+                                    <td>Excellence Scholarship</td>
+                                    <td>3.85</td>
+                                    <td>95%</td>
+                                    <td>Citizen</td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td style="font-size: 0.85rem;">Meets all criteria</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sarah Binti Ahmad</strong></td>
+                                    <td>Merit-Based Award</td>
+                                    <td>3.72</td>
+                                    <td>92%</td>
+                                    <td>Citizen</td>
+                                    <td><span class="badge badge-success">Eligible</span></td>
+                                    <td style="font-size: 0.85rem;">Meets all criteria</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Michael Chen</strong></td>
+                                    <td>Excellence Scholarship</td>
+                                    <td>2.98</td>
+                                    <td>88%</td>
+                                    <td>PR</td>
+                                    <td><span class="badge badge-danger">Ineligible</span></td>
+                                    <td style="font-size: 0.85rem;">Below minimum CGPA</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Aisha Mohamed Ali</strong></td>
+                                    <td>Faculty Excellence</td>
+                                    <td>3.65</td>
+                                    <td>76%</td>
+                                    <td>Citizen</td>
+                                    <td><span class="badge badge-danger">Ineligible</span></td>
+                                    <td style="font-size: 0.85rem;">Attendance below 80%</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rajesh Kumaran</strong></td>
+                                    <td>International Excellence</td>
+                                    <td>3.9</td>
+                                    <td>98%</td>
+                                    <td>International</td>
+                                    <td><span class="badge badge-danger">Ineligible</span></td>
+                                    <td style="font-size: 0.85rem;">Not a citizen/PR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div
+                    style="display: flex; justify-content: center; gap: var(--spacing-2); margin-top: var(--spacing-6);">
+                    <button class="btn btn-ghost btn-sm">← Previous</button>
+                    <button class="btn btn-primary btn-sm">1</button>
+                    <button class="btn btn-ghost btn-sm">2</button>
+                    <button class="btn btn-ghost btn-sm">3</button>
+                    <button class="btn btn-ghost btn-sm">Next →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

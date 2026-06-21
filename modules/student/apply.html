@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Scholarship - Student Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+    <style>
+        .form-group {
+            margin-bottom: var(--spacing-6);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-2);
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-3);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Scholarships</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="search.html">🔍 Search Scholarships</a></li>
+                <li><a href="details.html">ℹ️ Scholarship Details</a></li>
+                <li><a href="apply.html" class="active">✍️ Apply Now</a></li>
+                <li><a href="upload.html">📁 Upload Documents</a></li>
+                <li><a href="status.html">📋 Track Status</a></li>
+                <li><a href="history.html">📜 Application History</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Excellence Scholarship Application</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">John Doe</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="container" style="padding: var(--spacing-8);">
+                <!-- Progress Bar -->
+                <div style="margin-bottom: var(--spacing-8);">
+                    <div
+                        style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--spacing-3); margin-bottom: var(--spacing-6);">
+                        <div style="text-align: center;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--primary-blue); color: var(--text-inverse); display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto var(--spacing-2) auto;">
+                                1</div>
+                            <div style="font-size: 0.85rem; font-weight: 600;">Personal</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--gray-300); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto var(--spacing-2) auto;">
+                                2</div>
+                            <div style="font-size: 0.85rem; font-weight: 600;">Academic</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--gray-300); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto var(--spacing-2) auto;">
+                                3</div>
+                            <div style="font-size: 0.85rem; font-weight: 600;">Financial</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div
+                                style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--gray-300); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto var(--spacing-2) auto;">
+                                4</div>
+                            <div style="font-size: 0.85rem; font-weight: 600;">Review</div>
+                        </div>
+                    </div>
+                    <div style="width: 100%; height: 4px; background-color: var(--gray-200); border-radius: 2px;">
+                        <div
+                            style="width: 25%; height: 100%; background-color: var(--primary-blue); border-radius: 2px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Form -->
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-6);">
+                    <!-- Main Form -->
+                    <div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Step 1: Personal Information</div>
+                            </div>
+                            <div class="card-content">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4);">
+                                    <div class="form-group">
+                                        <label>Full Name *</label>
+                                        <input type="text" value="John David Doe" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Date of Birth *</label>
+                                        <input type="date" required>
+                                    </div>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4);">
+                                    <div class="form-group">
+                                        <label>Email Address *</label>
+                                        <input type="email" value="john.doe@student.university.edu.my" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone Number *</label>
+                                        <input type="tel" value="+60 12-3456-7890" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Address *</label>
+                                    <input type="text" placeholder="Street Address" required>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4);">
+                                    <div class="form-group">
+                                        <label>City/State *</label>
+                                        <input type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Postal Code *</label>
+                                        <input type="text" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>IC/Passport Number *</label>
+                                    <input type="text" placeholder="123456-78-9012" required>
+                                </div>
+
+                                <!-- Navigation -->
+                                <div
+                                    style="display: flex; gap: var(--spacing-4); justify-content: space-between; margin-top: var(--spacing-8); padding-top: var(--spacing-6); border-top: 1px solid var(--gray-200);">
+                                    <button class="btn btn-ghost">← Previous</button>
+                                    <button class="btn btn-primary">Next →</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Application Info</div>
+                            </div>
+                            <div class="card-content">
+                                <div
+                                    style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: var(--spacing-4);">
+                                    <p style="margin: 0; font-weight: 600; color: var(--text-primary);">Excellence
+                                        Scholarship</p>
+                                    <p style="margin: var(--spacing-2) 0 0 0;">Merit-based scholarship for outstanding
+                                        students</p>
+                                </div>
+                                <div
+                                    style="padding: var(--spacing-4); background-color: var(--primary-blue-light); border-radius: var(--radius-md); font-size: 0.85rem;">
+                                    <strong>Estimated Time:</strong> 10-15 minutes
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Required Fields</div>
+                            </div>
+                            <div class="card-content">
+                                <div style="display: flex; gap: var(--spacing-2); margin-bottom: var(--spacing-3);">
+                                    <span style="color: var(--status-success); font-weight: 700;">✓</span>
+                                    <span style="font-size: 0.9rem;">Personal Info</span>
+                                </div>
+                                <div style="display: flex; gap: var(--spacing-2); margin-bottom: var(--spacing-3);">
+                                    <span style="color: var(--gray-300); font-weight: 700;">○</span>
+                                    <span style="font-size: 0.9rem;">Academic Records</span>
+                                </div>
+                                <div style="display: flex; gap: var(--spacing-2); margin-bottom: var(--spacing-3);">
+                                    <span style="color: var(--gray-300); font-weight: 700;">○</span>
+                                    <span style="font-size: 0.9rem;">Financial Info</span>
+                                </div>
+                                <div style="display: flex; gap: var(--spacing-2);">
+                                    <span style="color: var(--gray-300); font-weight: 700;">○</span>
+                                    <span style="font-size: 0.9rem;">Review & Submit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status - Scholarship System</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+    <style>
+        .status-timeline {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-blue) 60%, var(--gray-200) 60%);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-marker {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            border: 3px solid var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-inverse);
+            font-weight: 700;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-item.completed .timeline-marker {
+            background-color: var(--status-approved);
+        }
+
+        .timeline-item.upcoming .timeline-marker {
+            background-color: var(--gray-300);
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: var(--spacing-4);
+            border-radius: var(--radius-lg);
+            background-color: var(--gray-50);
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .application-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .app-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+        }
+
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-2);
+            color: var(--primary-blue);
+        }
+
+        .app-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-3) 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .app-detail:last-child {
+            border-bottom: none;
+        }
+
+        .app-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .app-value {
+            font-weight: 600;
+        }
+
+        .next-steps {
+            background-color: var(--primary-blue-light);
+            border: 1px solid var(--primary-blue);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-6);
+            margin-top: var(--spacing-8);
+        }
+
+        .next-steps-title {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .next-steps-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .next-steps-list li {
+            padding: var(--spacing-3) 0;
+            display: flex;
+            gap: var(--spacing-3);
+        }
+
+        .next-steps-list li::before {
+            content: '✓';
+            color: var(--status-approved);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .application-header {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 12px;
+            }
+
+            .timeline-marker {
+                width: 36px;
+                height: 36px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">🎓 Scholarships</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Student Portal</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <span>📊</span> Dashboard
+                    </a>
+                    <a href="search.html" class="nav-item">
+                        <span>🔍</span> Search Scholarships
+                    </a>
+                    <a href="status.html" class="nav-item active">
+                        <span>📋</span> Application Status
+                    </a>
+                    <a href="history.html" class="nav-item">
+                        <span>📜</span> History
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Account</div>
+                    <a href="#" class="nav-item">
+                        <span>👤</span> Profile
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span>⚙️</span> Settings
+                    </a>
+                    <a href="../../index.html" class="nav-item">
+                        <span>←</span> Back to Main
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <h3 class="text-h5">Application Status</h3>
+                </div>
+                <div class="top-bar-right">
+                    <span>2 Active Applications</span>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Application 1: Excellence Scholarship -->
+                <div>
+                    <div class="application-header">
+                        <div class="app-card">
+                            <div class="app-title">Excellence Scholarship 2024</div>
+                            <div class="app-detail">
+                                <span class="app-label">Status:</span>
+                                <span class="badge badge-review">Under Review</span>
+                            </div>
+                            <div class="app-detail">
+                                <span class="app-label">Submitted:</span>
+                                <span class="app-value">Jan 10, 2024</span>
+                            </div>
+                            <div class="app-detail">
+                                <span class="app-label">Award Amount:</span>
+                                <span class="app-value">RM 10,000/year</span>
+                            </div>
+                            <div class="app-detail">
+                                <span class="app-label">Decision Date:</span>
+                                <span class="app-value">Expected: Jan 15</span>
+                            </div>
+                        </div>
+
+                        <div class="app-card">
+                            <div style="margin-bottom: var(--spacing-4);">
+                                <div class="text-h6">Application Progress</div>
+                                <div class="progress-bar" style="margin-top: var(--spacing-3);">
+                                    <div class="progress-fill" style="width: 60%;"></div>
+                                </div>
+                                <div
+                                    style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--spacing-2);">
+                                    60% Complete</div>
+                            </div>
+
+                            <div style="border-top: 1px solid var(--gray-200); padding-top: var(--spacing-4);">
+                                <div style="font-weight: 600; margin-bottom: var(--spacing-3); font-size: 0.95rem;">
+                                    Actions</div>
+                                <button class="btn btn-secondary btn-sm"
+                                    style="width: 100%; margin-bottom: var(--spacing-2);">View Details</button>
+                                <button class="btn btn-ghost btn-sm" style="width: 100%;">Download Submitted
+                                    Info</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="status-timeline">
+                        <div class="timeline">
+                            <div class="timeline-item completed">
+                                <div class="timeline-marker">✓</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Application Submitted</div>
+                                    <div class="timeline-date">Jan 10, 2024 at 2:30 PM</div>
+                                    <div class="timeline-description">Your application has been successfully submitted
+                                        with all required documents.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item completed">
+                                <div class="timeline-marker">✓</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Eligibility Screening Completed</div>
+                                    <div class="timeline-date">Jan 11, 2024 at 10:00 AM</div>
+                                    <div class="timeline-description">Your application passed the automated eligibility
+                                        screening. You meet all minimum requirements.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item completed">
+                                <div class="timeline-marker">✓</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Document Verification</div>
+                                    <div class="timeline-date">Jan 12, 2024 at 3:45 PM</div>
+                                    <div class="timeline-description">All submitted documents have been verified and
+                                        approved.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker">4</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Under Review</div>
+                                    <div class="timeline-date">In Progress</div>
+                                    <div class="timeline-description">Your application is currently being reviewed by
+                                        the scholarship committee.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item upcoming">
+                                <div class="timeline-marker">5</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Interview Scheduled</div>
+                                    <div class="timeline-date">Expected: Jan 20, 2024</div>
+                                    <div class="timeline-description">If shortlisted, you will be invited for an
+                                        interview.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item upcoming">
+                                <div class="timeline-marker">6</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Final Decision</div>
+                                    <div class="timeline-date">Expected: Jan 25, 2024</div>
+                                    <div class="timeline-description">Announcement of final scholarship award decisions.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <div class="next-steps-title">What to expect next</div>
+                        <ul class="next-steps-list">
+                            <li>Decision email will be sent to your registered email address</li>
+                            <li>If shortlisted, you will receive interview instructions via email</li>
+                            <li>Award letters will be issued upon final approval</li>
+                            <li>Award disbursement will follow university banking procedures</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Application 2: Merit-Based Award -->
+                <div
+                    style="margin-top: var(--spacing-12); padding-top: var(--spacing-8); border-top: 2px solid var(--gray-200);">
+                    <div class="application-header">
+                        <div class="app-card">
+                            <div class="app-title">Merit-Based Award</div>
+                            <div class="app-detail">
+                                <span class="app-label">Status:</span>
+                                <span class="badge badge-shortlisted">Shortlisted</span>
+                            </div>
+                            <div class="app-detail">
+                                <span class="app-label">Submitted:</span>
+                                <span class="app-value">Dec 28, 2023</span>
+                            </div>
+                            <div class="app-detail">
+                                <span class="app-label">Award Amount:</span>
+                                <span class="app-value">RM 8,000/year</span>
+                            </div>
+                            <div class="app-detail">
+                                <span class="app-label">Interview Date:</span>
+                                <span class="app-value">Jan 20, 2024 - 2:00 PM</span>
+                            </div>
+                        </div>
+
+                        <div class="app-card">
+                            <div style="margin-bottom: var(--spacing-4);">
+                                <div class="text-h6">Application Progress</div>
+                                <div class="progress-bar" style="margin-top: var(--spacing-3);">
+                                    <div class="progress-fill"
+                                        style="width: 80%; background-color: var(--status-approved);"></div>
+                                </div>
+                                <div
+                                    style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--spacing-2);">
+                                    80% Complete</div>
+                            </div>
+
+                            <div style="border-top: 1px solid var(--gray-200); padding-top: var(--spacing-4);">
+                                <div style="font-weight: 600; margin-bottom: var(--spacing-3); font-size: 0.95rem;">
+                                    Actions</div>
+                                <button class="btn btn-primary btn-sm"
+                                    style="width: 100%; margin-bottom: var(--spacing-2);">View Interview
+                                    Details</button>
+                                <button class="btn btn-secondary btn-sm"
+                                    style="width: 100%; margin-bottom: var(--spacing-2);">Download Interview
+                                    Guide</button>
+                                <button class="btn btn-ghost btn-sm" style="width: 100%;">Contact Administrator</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="status-timeline">
+                        <div class="timeline">
+                            <div class="timeline-item completed">
+                                <div class="timeline-marker">✓</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Application Submitted</div>
+                                    <div class="timeline-date">Dec 28, 2023</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item completed">
+                                <div class="timeline-marker">✓</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Eligibility Screening Passed</div>
+                                    <div class="timeline-date">Dec 29, 2023</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item completed">
+                                <div class="timeline-marker">✓</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Document Verification Approved</div>
+                                    <div class="timeline-date">Dec 30, 2023</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item completed">
+                                <div class="timeline-marker">✓</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Shortlisted for Interview</div>
+                                    <div class="timeline-date">Jan 8, 2024</div>
+                                    <div class="timeline-description">Congratulations! You have been shortlisted and
+                                        selected for an interview.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-marker">5</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Interview</div>
+                                    <div class="timeline-date">Jan 20, 2024 at 2:00 PM</div>
+                                    <div class="timeline-description">Your scheduled interview with the scholarship
+                                        committee.</div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item upcoming">
+                                <div class="timeline-marker">6</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Final Decision</div>
+                                    <div class="timeline-date">Expected: Jan 27, 2024</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Weights - Evaluation Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Evaluation</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="profiles.html">👥 Candidate Profiles</a></li>
+                <li><a href="scores.html">⭐ Interview Scores</a></li>
+                <li><a href="ranking.html">🏆 Ranking List</a></li>
+                <li><a href="analytics.html">📈 Analytics</a></li>
+                <li><a href="weights.html" class="active">⚖️ Modify Weights</a></li>
+                <li><a href="merit.html">✓ Final Merit List</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Adjust Ranking Weights</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Evaluator</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-6);">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Scoring Weights Configuration</div>
+                        </div>
+                        <div class="card-content">
+                            <div
+                                style="margin-bottom: var(--spacing-8); padding-bottom: var(--spacing-8); border-bottom: 1px solid var(--gray-200);">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-3);">
+                                    <label style="font-weight: 600;">Academic Performance (%)</label>
+                                    <span style="color: var(--text-secondary);" id="acad-val">40%</span>
+                                </div>
+                                <input type="range" min="0" max="100" value="40" id="academic-weight"
+                                    style="width: 100%;">
+                                <p
+                                    style="margin: var(--spacing-2) 0 0 0; font-size: 0.85rem; color: var(--text-secondary);">
+                                    CGPA, test scores, academic records</p>
+                            </div>
+
+                            <div
+                                style="margin-bottom: var(--spacing-8); padding-bottom: var(--spacing-8); border-bottom: 1px solid var(--gray-200);">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-3);">
+                                    <label style="font-weight: 600;">Interview Performance (%)</label>
+                                    <span style="color: var(--text-secondary);" id="interview-val">40%</span>
+                                </div>
+                                <input type="range" min="0" max="100" value="40" id="interview-weight"
+                                    style="width: 100%;">
+                                <p
+                                    style="margin: var(--spacing-2) 0 0 0; font-size: 0.85rem; color: var(--text-secondary);">
+                                    Communication, leadership, motivation</p>
+                            </div>
+
+                            <div style="margin-bottom: var(--spacing-8);">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-3);">
+                                    <label style="font-weight: 600;">Financial Need (%)</label>
+                                    <span style="color: var(--text-secondary);" id="financial-val">20%</span>
+                                </div>
+                                <input type="range" min="0" max="100" value="20" id="financial-weight"
+                                    style="width: 100%;">
+                                <p
+                                    style="margin: var(--spacing-2) 0 0 0; font-size: 0.85rem; color: var(--text-secondary);">
+                                    Household income, expenses</p>
+                            </div>
+
+                            <div style="display: flex; gap: var(--spacing-4);">
+                                <button class="btn btn-secondary">Reset to Default</button>
+                                <button class="btn btn-primary">Apply Weights</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card" style="margin-bottom: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Weight Summary</div>
+                            </div>
+                            <div class="card-content">
+                                <div style="margin-bottom: var(--spacing-4);">
+                                    <div
+                                        style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                        <span>Academic</span>
+                                        <strong id="acad-summary">40%</strong>
+                                    </div>
+                                    <div
+                                        style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                        <div
+                                            style="width: 40%; height: 100%; background-color: var(--primary-blue); border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-bottom: var(--spacing-4);">
+                                    <div
+                                        style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                        <span>Interview</span>
+                                        <strong id="interview-summary">40%</strong>
+                                    </div>
+                                    <div
+                                        style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                        <div
+                                            style="width: 40%; height: 100%; background-color: #8B5CF6; border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2); font-size: 0.9rem;">
+                                        <span>Financial</span>
+                                        <strong id="financial-summary">20%</strong>
+                                    </div>
+                                    <div
+                                        style="width: 100%; height: 6px; background-color: var(--gray-200); border-radius: 3px;">
+                                        <div
+                                            style="width: 20%; height: 100%; background-color: #F59E0B; border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Total</div>
+                            </div>
+                            <div class="card-content" style="font-size: 1.2rem; font-weight: 700; text-align: center;">
+                                <span id="total-weight">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+    <script>
+        const acadInput = document.getElementById('academic-weight');
+        const interviewInput = document.getElementById('interview-weight');
+        const financialInput = document.getElementById('financial-weight');
+
+        function updateWeights() {
+            const acad = parseInt(acadInput.value);
+            const interview = parseInt(interviewInput.value);
+            const financial = parseInt(financialInput.value);
+
+            document.getElementById('acad-val').textContent = acad + '%';
+            document.getElementById('interview-val').textContent = interview + '%';
+            document.getElementById('financial-val').textContent = financial + '%';
+
+            document.getElementById('acad-summary').textContent = acad + '%';
+            document.getElementById('interview-summary').textContent = interview + '%';
+            document.getElementById('financial-summary').textContent = financial + '%';
+
+            const total = acad + interview + financial;
+            document.getElementById('total-weight').textContent = total + '%';
+        }
+
+        acadInput.addEventListener('input', updateWeights);
+        interviewInput.addEventListener('input', updateWeights);
+        financialInput.addEventListener('input', updateWeights);
+    </script>
+</body>
+
+</html>

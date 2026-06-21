@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Scholarship System</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+    <style>
+        .welcome-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            color: var(--text-inverse);
+            padding: var(--spacing-8);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .welcome-content h2 {
+            margin-bottom: var(--spacing-2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-6);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .scholarship-summary {
+            background-color: var(--white);
+            padding: var(--spacing-6);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .scholarship-summary-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-2);
+        }
+
+        .applications-section,
+        .notifications-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-6);
+        }
+
+        @media (max-width: 1024px) {
+
+            .applications-section,
+            .notifications-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .app-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: var(--spacing-4);
+            padding: var(--spacing-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .notification-item {
+            padding: var(--spacing-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+            border-left: 3px solid var(--status-pending);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .notification-item.info {
+            border-left-color: var(--status-review);
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-4);
+            margin-top: var(--spacing-6);
+        }
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-6);
+            background-color: var(--primary-blue-light);
+            border: 1px solid var(--primary-blue);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            gap: var(--spacing-3);
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            background-color: var(--primary-blue);
+            color: var(--text-inverse);
+        }
+
+        .action-icon {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">🎓 Scholarships</div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Student Portal</div>
+                    <a href="dashboard.html" class="nav-item active">
+                        <span>📊</span> Dashboard
+                    </a>
+                    <a href="search.html" class="nav-item">
+                        <span>🔍</span> Search Scholarships
+                    </a>
+                    <a href="status.html" class="nav-item">
+                        <span>📋</span> Application Status
+                    </a>
+                    <a href="history.html" class="nav-item">
+                        <span>📜</span> History
+                    </a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">Account</div>
+                    <a href="#" class="nav-item">
+                        <span>👤</span> Profile
+                    </a>
+                    <a href="#" class="nav-item">
+                        <span>⚙️</span> Settings
+                    </a>
+                    <a href="../../index.html" class="nav-item">
+                        <span>←</span> Back to Main
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <h3 class="text-h5">Dashboard</h3>
+                </div>
+                <div class="top-bar-right">
+                    <div style="display: flex; align-items: center; gap: var(--spacing-4);">
+                        <span style="font-size: 0.95rem;">Welcome, Aisha</span>
+                        <div
+                            style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #0052CC, #003B99); display: flex; align-items: center; justify-content: center; color: var(--text-inverse); font-weight: 700;">
+                            A</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Welcome Section -->
+                <div class="welcome-section">
+                    <div class="welcome-content">
+                        <h2>Welcome back, Aisha! 👋</h2>
+                        <p>You have 2 active applications and 1 new scholarship opportunity matching your profile.</p>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div style="margin-bottom: var(--spacing-8);">
+                    <h3 class="text-h4">Quick Actions</h3>
+                    <div class="quick-actions">
+                        <a href="search.html" class="action-btn">
+                            <div class="action-icon">🔍</div>
+                            <div>Search Scholarships</div>
+                        </a>
+                        <a href="apply.html" class="action-btn">
+                            <div class="action-icon">✍️</div>
+                            <div>New Application</div>
+                        </a>
+                        <a href="status.html" class="action-btn">
+                            <div class="action-icon">📋</div>
+                            <div>Check Status</div>
+                        </a>
+                        <a href="#" class="action-btn">
+                            <div class="action-icon">📄</div>
+                            <div>Upload Documents</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Active Applications</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-change positive">↑ On track</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Total Scholarships Viewed</div>
+                        <div class="stat-value">14</div>
+                        <div class="stat-change positive">↑ 3 new this week</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Approved Awards</div>
+                        <div class="stat-value">1</div>
+                        <div class="stat-change positive">RM 5,000/semester</div>
+                    </div>
+                </div>
+
+                <!-- Applications Section -->
+                <div class="applications-section">
+                    <div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Recent Applications</div>
+                            </div>
+                            <div style="overflow: auto;">
+                                <table style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Scholarship</th>
+                                            <th>Status</th>
+                                            <th>Submitted</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Excellence Scholarship 2024</strong></td>
+                                            <td><span class="badge badge-review">Under Review</span></td>
+                                            <td><span class="text-secondary" style="font-size: 0.875rem;">5 days
+                                                    ago</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Merit-Based Award</strong></td>
+                                            <td><span class="badge badge-shortlisted">Shortlisted</span></td>
+                                            <td><span class="text-secondary" style="font-size: 0.875rem;">2 weeks
+                                                    ago</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Faculty Scholarship</strong></td>
+                                            <td><span class="badge badge-approved">Approved</span></td>
+                                            <td><span class="text-secondary" style="font-size: 0.875rem;">1 month
+                                                    ago</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card-footer">
+                                <a href="status.html" class="btn btn-ghost">View All →</a>
+                            </div>
+                        </div>
+
+                        <!-- Application Progress -->
+                        <div class="card" style="margin-top: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Application Progress</div>
+                            </div>
+                            <div class="card-content">
+                                <div style="margin-bottom: var(--spacing-6);">
+                                    <div
+                                        style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2);">
+                                        <span class="text-body">Excellence Scholarship 2024</span>
+                                        <span class="text-secondary" style="font-size: 0.85rem;">60%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%;"></div>
+                                    </div>
+                                    <div
+                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--spacing-2);">
+                                        Under Review - Decision expected by Jan 15</div>
+                                </div>
+
+                                <div>
+                                    <div
+                                        style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-2);">
+                                        <span class="text-body">Merit-Based Award</span>
+                                        <span class="text-secondary" style="font-size: 0.85rem;">100%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"
+                                            style="width: 100%; background-color: var(--status-approved);"></div>
+                                    </div>
+                                    <div
+                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-top: var(--spacing-2);">
+                                        Shortlisted - Interview on Jan 20</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications & Recommendations -->
+                    <div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title">Notifications</div>
+                            </div>
+                            <div class="card-content">
+                                <div class="notification-item info">
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-2);">Interview Scheduled
+                                    </div>
+                                    <div style="font-size: 0.9rem; color: var(--text-secondary);">Your interview for
+                                        Merit-Based Award is scheduled for January 20, 2024 at 2:00 PM.</div>
+                                </div>
+
+                                <div class="notification-item">
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-2);">Review Status</div>
+                                    <div style="font-size: 0.9rem; color: var(--text-secondary);">Your application for
+                                        Excellence Scholarship is under review. Expected decision date: Jan 15.</div>
+                                </div>
+
+                                <div class="notification-item info">
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-2);">New Opportunity
+                                    </div>
+                                    <div style="font-size: 0.9rem; color: var(--text-secondary);">Engineering Excellence
+                                        Fund now open. You match 95% of requirements.</div>
+                                    <a href="search.html" class="module-link"
+                                        style="display: inline-block; margin-top: var(--spacing-2);">View Opportunity
+                                        →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="margin-top: var(--spacing-6);">
+                            <div class="card-header">
+                                <div class="card-title">Recommended Scholarships</div>
+                            </div>
+                            <div class="card-content">
+                                <div
+                                    style="padding: var(--spacing-4); background-color: var(--gray-50); border-radius: var(--radius-lg); margin-bottom: var(--spacing-4);">
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-1);">Engineering
+                                        Excellence Fund</div>
+                                    <div
+                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: var(--spacing-2);">
+                                        Match: 95% • Deadline: Feb 28</div>
+                                    <div class="badge badge-approved" style="font-size: 0.8rem;">Highly Recommended
+                                    </div>
+                                </div>
+
+                                <div
+                                    style="padding: var(--spacing-4); background-color: var(--gray-50); border-radius: var(--radius-lg);">
+                                    <div style="font-weight: 600; margin-bottom: var(--spacing-1);">Department Award
+                                    </div>
+                                    <div
+                                        style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: var(--spacing-2);">
+                                        Match: 88% • Deadline: Mar 15</div>
+                                    <div class="badge badge-review" style="font-size: 0.8rem;">Recommended</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking List - Evaluation Portal</title>
+    <link rel="stylesheet" href="../../assets/css/design-system.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="font-size: 1.3rem; font-weight: 700; margin: 0;">Evaluation</h2>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="dashboard.html">📊 Dashboard</a></li>
+                <li><a href="profiles.html">👥 Candidate Profiles</a></li>
+                <li><a href="scores.html">⭐ Interview Scores</a></li>
+                <li><a href="ranking.html" class="active">🏆 Ranking List</a></li>
+                <li><a href="analytics.html">📈 Analytics</a></li>
+                <li><a href="weights.html">⚖️ Modify Weights</a></li>
+                <li><a href="merit.html">✓ Final Merit List</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <button class="menu-toggle"
+                        onclick="document.querySelector('.sidebar').classList.toggle('active')">☰</button>
+                    <h1 class="text-h3">Merit-Based Ranking</h1>
+                </div>
+                <div class="top-bar-right">
+                    <span style="color: var(--text-secondary);">Evaluator</span>
+                </div>
+            </div>
+
+            <div class="container" style="padding: var(--spacing-8);">
+                <div class="card">
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 60px;">Rank</th>
+                                    <th>Student Name</th>
+                                    <th>Academic</th>
+                                    <th>Interview</th>
+                                    <th>Motivation</th>
+                                    <th>Total Score</th>
+                                    <th>Scholarship</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background-color: #FEF3C7; font-weight: 600;">
+                                    <td style="text-align: center; font-size: 1.3rem;">🥇</td>
+                                    <td>John David Doe</td>
+                                    <td>88.0</td>
+                                    <td>87.5</td>
+                                    <td>87.0</td>
+                                    <td style="color: var(--status-success);">87.5</td>
+                                    <td>Excellence</td>
+                                    <td><span class="badge badge-success">Awarded</span></td>
+                                </tr>
+                                <tr style="background-color: #E5E7EB; font-weight: 600;">
+                                    <td style="text-align: center; font-size: 1.3rem;">🥈</td>
+                                    <td>Sarah Binti Ahmad</td>
+                                    <td>86.0</td>
+                                    <td>85.0</td>
+                                    <td>84.4</td>
+                                    <td style="color: #6B7280;">85.2</td>
+                                    <td>Merit-Based</td>
+                                    <td><span class="badge badge-success">Awarded</span></td>
+                                </tr>
+                                <tr style="background-color: #FED7AA; font-weight: 600;">
+                                    <td style="text-align: center; font-size: 1.3rem;">🥉</td>
+                                    <td>Tan Wei Ming</td>
+                                    <td>84.0</td>
+                                    <td>82.5</td>
+                                    <td>81.6</td>
+                                    <td style="color: #B45309;">82.8</td>
+                                    <td>Faculty Excellence</td>
+                                    <td><span class="badge badge-success">Awarded</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">4</td>
+                                    <td>Aisha Mohamed Ali</td>
+                                    <td>85.5</td>
+                                    <td>84.2</td>
+                                    <td>83.8</td>
+                                    <td>84.5</td>
+                                    <td>Merit-Based</td>
+                                    <td><span class="badge badge-success">Awarded</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">5</td>
+                                    <td>Priya Sharma</td>
+                                    <td>83.8</td>
+                                    <td>83.0</td>
+                                    <td>82.5</td>
+                                    <td>83.1</td>
+                                    <td>Merit-Based</td>
+                                    <td><span class="badge badge-warning">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/components.js"></script>
+</body>
+
+</html>
